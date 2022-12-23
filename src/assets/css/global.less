@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+@media screen {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    // font 可以继承 行高可以没有单位 例如1.5，就是font-size的1.5倍
+    /* font-size 和 font-family不可以省略
+    font: font-style font-weight font-size/line-height font-family */
+    font: 40px/1.5 'Microsoft YaHei';
+  }
+}
