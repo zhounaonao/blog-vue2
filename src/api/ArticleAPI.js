@@ -1,15 +1,16 @@
 import request from '@/utils/request.js'
 
-export function articleList(userName, password) {
+export function articleList(pageNum, pageSize, categoryId) {
   return request({
-    url: '/security/login',
-    method: 'post',
+    url: '/article/articleList',
+    method: 'get',
     headers: {
       isToken: false
     },
-    data: {
-      "userName": userName,
-      "password": password
+    params: {
+      "pageNum": pageNum,
+      "pageSize": pageSize,
+      "categoryId": categoryId
     }
   })
 }

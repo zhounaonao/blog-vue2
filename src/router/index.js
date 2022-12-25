@@ -12,7 +12,7 @@ const routes = [
     path: '/study',
     component: () => import('@/views/Study/Study.vue'),
     children: [
-      { path: 'type/:id', component: () => import('@/views/Study/ArticleList.vue'), props: true }
+      { path: 'type/:categoryId', component: () => import('@/views/Study/ArticleList.vue'), props: true }
     ]
   },
   { path: '/star', component: () => import('@/views/Star/Star.vue') },

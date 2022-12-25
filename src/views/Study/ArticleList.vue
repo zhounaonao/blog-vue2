@@ -1,6 +1,5 @@
 <template>
   <div class="article-list-container">
-    <span>{{ id }}</span>
     <ul>
       <Article></Article>
     </ul>
@@ -9,25 +8,42 @@
 
 <script>
 import Article from '@/views/Study/Article.vue'
-import { login } from '@/api/LoginAPI.js'
+import { articleList } from '@/api/ArticleAPI.js'
 export default {
   name: 'ArticleList',
   components: {
     Article
   },
   props: {
-    id: {
+    categoryId: {
       type: [Number, String],
       default: 1
     }
   },
+  data() {
+    return {
+      pageNum: 1,
+      pageSize: 10,
+      articleList: []
+    }
+  },
   created() {
-    const a = login()
-    console.log(a);
+    this.getArticleList()
+  },
+  methods: {
+
+    async getArticleList() {
+      const { data:res } = await articleList(this.pageNum, this.pageSize, this.categoryId)
+      this.articleList = res
+    }
+
   }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.article-list-container {
+  width: 90%;
+  margin: 0 auto;
+}
 </style>
