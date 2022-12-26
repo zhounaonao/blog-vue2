@@ -15,11 +15,8 @@ export default {
 .footer-container {
   height: @footerHeight;
   line-height: @footerHeight;
-  background-color: #409EFF;
-  margin-top: 2%;
   
   p {
-    color: #ffffff;
     text-align: center;
   }
 }

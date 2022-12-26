@@ -2,6 +2,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'KaiTi';
+}
+
+.router-link-active {
+  text-decoration: none;//去除默认样式
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+.box-btm {
+  // 半透明色
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  // 半透明色
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 
@@ -22,6 +40,6 @@
     // font 可以继承 行高可以没有单位 例如1.5，就是font-size的1.5倍
     /* font-size 和 font-family不可以省略
     font: font-style font-weight font-size/line-height font-family */
-    font: 40px/1.5 'Microsoft YaHei';
+    font: 36px/1.5 'Microsoft YaHei';
   }
 }

@@ -14,3 +14,13 @@ export function articleList(pageNum, pageSize, categoryId) {
     }
   })
 }
+
+export function getArticleDetail(articleId) {
+  return request({
+    url: '/article/' + articleId,
+    method: 'get',
+    headers: {
+      isToken: false
+    }
+  })
+}

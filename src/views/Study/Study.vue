@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.study-container {
+  padding-top: 60px;
+}
 </style>

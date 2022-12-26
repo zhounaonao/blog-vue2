@@ -18,7 +18,7 @@ request.interceptors.request.use(config => {
   // 展示loading效果
   // loadingInstance = Loading.service({ fullscreen: true })
   const isToken = config.headers.isToken
-  console.log(getToken());
+  // console.log(getToken());
   if (getToken() && isToken) {
     config.headers['token'] = getToken()
   }

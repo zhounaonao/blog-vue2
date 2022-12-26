@@ -12,9 +12,11 @@ const routes = [
     path: '/study',
     component: () => import('@/views/Study/Study.vue'),
     children: [
-      { path: 'type/:categoryId', component: () => import('@/views/Study/ArticleList.vue'), props: true }
+      { path: 'type/:categoryId', component: () => import('@/views/Study/ArticleList.vue'), props: true },
+      { path: 'article/:id', component: () => import('@/views/Study/ArticleInfo.vue'), props: true },
     ]
   },
+
   { path: '/star', component: () => import('@/views/Star/Star.vue') },
   { path: '/about', component: () => import('@/views/Star/Star.vue') }
 ]

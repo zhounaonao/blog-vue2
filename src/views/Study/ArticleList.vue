@@ -1,14 +1,21 @@
 <template>
   <div class="article-list-container">
     <ul>
-      <Article></Article>
+      <li v-for="item in articleList" :key="item.id">
+        <router-link :to="'/study/article/' + item.id">
+          <Article :id="item.id" :img="item.thumbnail" 
+          :title="item.title" :summary="item.summary" :categoryName="item.categoryName" 
+          :viewCount="item.viewCount" :time="item.createTime"
+          ></Article>
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 import Article from '@/views/Study/Article.vue'
-import { articleList } from '@/api/ArticleAPI.js'
+
 export default {
   name: 'ArticleList',
   components: {
@@ -17,26 +24,21 @@ export default {
   props: {
     categoryId: {
       type: [Number, String],
-      default: 1
+      default: 0
+    },
+    articleList: {
+      type: Array,
+      default: []
     }
   },
   data() {
-    return {
-      pageNum: 1,
-      pageSize: 10,
-      articleList: []
-    }
+    return {}
   },
-  created() {
-    this.getArticleList()
-  },
+  created() {},
   methods: {
-
-    async getArticleList() {
-      const { data:res } = await articleList(this.pageNum, this.pageSize, this.categoryId)
-      this.articleList = res
+    gotoArticleInfo() {
+      console.log(this);
     }
-
   }
 }
 </script>
@@ -45,5 +47,9 @@ export default {
 .article-list-container {
   width: 90%;
   margin: 0 auto;
+  ul li {
+    list-style: none;
+
+  }
 }
 </style>
