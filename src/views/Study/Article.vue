@@ -107,7 +107,7 @@ export default {
         url(http://oss.znn23.top/file/%E6%A0%87%E7%AD%BE/label.png) no-repeat
         scroll top center;
       background-size: 2rem 1rem;
-      box-shadow: 0.2rem 0.1rem 0.2rem 1px rgba(0, 0, 0, 0.3);
+      box-shadow: 0.2rem 0.1rem 0.2rem 0.03rem rgba(0, 0, 0, 0.3);
     }
 
     .article-summary {
@@ -117,7 +117,7 @@ export default {
     .article-last {
       position: absolute;
       bottom: 5px;
-      font-size: 0.6px;
+      font-size: 0.6rem;
       text-align: center;
       display: flex;
       justify-content: center;
