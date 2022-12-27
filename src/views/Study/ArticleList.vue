@@ -38,6 +38,9 @@ export default {
   methods: {
     gotoArticleInfo() {
       console.log(this);
+    },
+    load(e) {
+      this.$emit('load', '123')
     }
   }
 }
@@ -47,9 +50,9 @@ export default {
 .article-list-container {
   width: 90%;
   margin: 0 auto;
-  ul li {
-    list-style: none;
 
-  }
+
 }
+
+
 </style>

@@ -39,9 +39,9 @@ export default {
 
 <style lang="less" scoped>
 .card {
- width: 12em;
+ width: 10em;
  border-radius: 1em;
- padding: 1.9rem 1.2rem;
+ padding: 0.5rem 1rem;
  text-align: center;
  background: #409EFF;
 }
@@ -55,14 +55,9 @@ export default {
  gap: .5em;
  background-color: #f5f5f5;
  border-radius: 4px;
- padding: .5em 1em;
+ padding: .3em 1em;
 }
 
-.input-icon {
- height: 1em;
- width: 1em;
- fill: #409EFF;
-}
 
 .input-field {
  background: none;
@@ -70,25 +65,26 @@ export default {
  outline: none;
  width: 100%;
  color: #409EFF;
+ font-size: .5em;
 }
 
 /*Text*/
 .title {
  margin-bottom: 1rem;
- font-size: 1.5em;
+ font-size: 1.4em;
  font-weight: 500;
  color: #f5f5f5;
 }
 
 /*Buttons*/
 .btn {
- margin: 1rem;
+ margin: .6rem 1rem;
  border: none;
  border-radius: 4px;
  font-weight: bold;
- font-size: .8em;
+ font-size: .5em;
  text-transform: uppercase;
- padding: 0.6em 1.2em;
+ padding: .6em 1.2em;
  background-color: #f5f5f5;
  color: #5e6681;
  box-shadow: 0 8px 24px 0 rgb(64 158 255 / 20%);
@@ -98,7 +94,7 @@ export default {
 .btn-link {
  color: #f5f5f5;
  display: block;
- font-size: .75em;
+ font-size: .5em;
  transition: color .3s ease-out;
 }
 

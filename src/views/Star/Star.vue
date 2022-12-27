@@ -1,15 +1,41 @@
 <template>
   <div class="star-container">
-    <h4>收藏</h4>
+    <div class="star-main">
+      <div class="box">
+        <img src="http://oss.znn23.top/file/background/wallhaven-l8mlyy_1920x1080.png">
+      </div>
+      <div class="box">
+        <img src="http://oss.znn23.top/file/background/wallhaven-l8mlyy_1920x1080.png">
+      </div>
+      <div class="box">
+        <img src="http://oss.znn23.top/file/background/wallhaven-l8mlyy_1920x1080.png">
+      </div>
+      <div class="box">
+        <img src="http://oss.znn23.top/file/background/wallhaven-l8mlyy_1920x1080.png">
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
-<style>
+<style lang="less" scoped>
+.star-container {
+  .star-main {
+    padding: 60px;
+    width: 80%;
+    margin: 0 auto;
+    .box {
+      width: 320px;
+      height: 180px;
 
+      img {
+        width: 320px;
+        height: 180px;
+      }
+    }
+  }
+}
 </style>

@@ -16,9 +16,9 @@ const routes = [
       { path: 'article/:id', component: () => import('@/views/Study/ArticleInfo.vue'), props: true },
     ]
   },
-
+  { path: '/write', component: () => import('@/views/Write/Write.vue') },
   { path: '/star', component: () => import('@/views/Star/Star.vue') },
-  { path: '/about', component: () => import('@/views/Star/Star.vue') }
+  { path: '/about', component: () => import('@/views/About/About.vue') }
 ]
 
 const router = new VueRouter({

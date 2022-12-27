@@ -1,15 +1,17 @@
 <template>
   <div class="user-container">
-    <div v-if="!logined" class="login">
-      <Login></Login>
-    </div>
-    <div v-else>
-      个人信息
-      <ButtonShine class="button-logout" @shine-click="logout">
-        <template #default>
-          退出登录
-        </template>
-      </ButtonShine>
+    <div class="user-main">
+      <div v-if="!logined" class="login">
+        <Login></Login>
+      </div>
+      <div v-else>
+        个人信息
+        <ButtonShine class="button-logout" @shine-click="logout">
+          <template #default>
+            退出登录
+          </template>
+        </ButtonShine>
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +24,8 @@ import { removeToken } from '@/utils/auth.js'
 export default {
   name: 'User',
   components: {
-    Login,ButtonShine
+    Login,
+    ButtonShine
   },
   computed: {
     logined() {
@@ -41,13 +44,20 @@ export default {
 
 <style lang="less" scoped>
 .user-container {
-  /deep/ .card {
-    margin:auto;
-  }
+  .user-main {
+    padding: 60px;
 
-  .button-logout {
-    float: right;
-  }
+    .login {
+      padding: 100px 0 0 0;
+    }
 
+    /deep/ .card {
+      margin: auto;
+    }
+
+    .button-logout {
+      float: right;
+    }
+  }
 }
 </style>

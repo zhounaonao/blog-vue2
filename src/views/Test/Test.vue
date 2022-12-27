@@ -1,28 +1,48 @@
 <template>
   <div class="test-container">
-    <div class="father">
-      <div class="children"></div>
+    <div class="line1">
+      <div class="father">
+        <div class="children"></div>
+      </div>
+      <div class="card">
+        <img src="http://oss.znn23.top/2022/12/7aeae696b2294ebab955a047e50c6b59.png">
+        <p class="title">这是一个菜头，我是他的简介，他是一个图片</p>
+        <div class="price-container"><span>价格</span><span>|</span><span class="price">￥20</span></div>
+      </div>
+      <div class="shadow">
+        <div class="box">
+          <p>阴影</p>
+        </div>
+      </div>
+      <Position></Position>
     </div>
-    <div class="card">
-      <img src="http://oss.znn23.top/2022/12/7aeae696b2294ebab955a047e50c6b59.png">
-      <p class="title">这是一个菜头，我是他的简介，他是一个图片</p>
-      <div class="price-container"><span>价格</span><span>|</span><span class="price">￥20</span></div>
-    </div>
-    <div class="shadow">
-      <div class="box">
-        <p>阴影</p>
+    <div class="line2">
+      <div class="promo">
+        <img src="http://oss.znn23.top/file/background/wallhaven-p981rj_600x600.png">
+        <a href="#" class="prev"> &lt; </a>
+        <a href="#" class="next"> &gt; </a>
+        <ul class="promo-nav">
+          <li class="selected"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     </div>
-    <Position></Position>
+    <div class="line3">
+      <Nav></Nav>
+    </div>
   </div>
 </template>
 
 <script>
 import Position from '@/components/Test/Position.vue'
+import Nav from '@/components/Nav/Nav.vue'
 export default {
   name: 'Test',
   components: {
-    Position
+    Position, Nav
   }
 }
 </script>
@@ -76,10 +96,26 @@ css样式顺序：
   4.其他属性(css3)：content,cursor,border-radius,box-shadow,texxt-shadow,background:linear-gradient...
 */
 
-.test-container {
+.line1 {
   display: flex;
   flex-direction: row;
+  padding: 60px 0 0 0;
 
+  .father {
+    height: 15rem;
+    width: 15rem;
+    background-color: aquamarine;
+    // border: 1px solid red;
+    // padding: 1px;
+    overflow: hidden;
+
+    .children {
+      height: 5rem;
+      width: 5rem;
+      background-color: #000;
+      margin-top: 20px;
+    }
+  }
   .card {
     width: 10rem;
     background-color: #f5f5f5;
@@ -112,7 +148,6 @@ css样式顺序：
       height: 10rem;
       width: 10rem;
       background-color: #f5f5f5;
-
     }
 
     .box:hover {
@@ -120,24 +155,70 @@ css样式顺序：
       box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.3);
       p {
         /* 文字阴影 => text-shadow: x, y, 模糊度, 颜色 */
-        text-shadow: 10px 10px 10px rgba(0, 0, 0, .3);
+        text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
       }
     }
   }
 }
-.father {
-  height: 15rem;
-  width: 15rem;
-  background-color: aquamarine;
-  // border: 1px solid red;
-  // padding: 1px;
-  overflow: hidden;
 
-  .children {
-    height: 5rem;
-    width: 5rem;
-    background-color: #000;
-    margin-top: 20px;
+.line2 {
+  .promo {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+
+    /* 并集选择器 */
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+      width: 20px;
+      height: 30px;
+      background-color: rgba(0,0,0,.3);
+      font-size: 20px;
+      text-align: center;
+      
+    }
+
+    .prev {
+      left: 0;
+      border-radius: 0 50% 50% 0;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 50% 0 0 50%;
+    }
+
+    .promo-nav {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      margin-left: -30px;
+      width: 80px;
+      height: 16px;
+      background-color: rgba(255, 255, 255, .3);
+      border-radius: 10px;
+
+      li {
+        float: left;
+        width: 10px;
+        height: 10px;
+        margin: 3px;
+        background-color: #fff;
+        border-radius: 50%;
+      }
+      .selected {
+        background-color: lightcoral;
+      }
+    }
   }
 }
 </style>

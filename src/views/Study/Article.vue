@@ -84,13 +84,14 @@ export default {
     width: 100%;
     position: relative;
     padding: 0.2rem 0.4rem;
+    overflow: hidden; // 溢出部分不显示
 
     .article-title {
       text-align: center;
       padding: 0.2rem 1rem 0 0;
       /* font-size 和 font-family不可以省略
           font: font-style font-weight font-size/line-height font-family */
-      font: 600 1rem 'KaiTi';
+      font: 600 1.2rem 'KaiTi';
     }
 
     .article-category-name {
@@ -102,7 +103,7 @@ export default {
       text-align: center;
       position: absolute;
       top: 0.1rem;
-      right: -0.1rem;
+      right: 0rem;
       background: transparent
         url(http://oss.znn23.top/file/%E6%A0%87%E7%AD%BE/label.png) no-repeat
         scroll top center;

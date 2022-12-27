@@ -1,7 +1,11 @@
 <template>
   <div class="article-info-container">
-    <div>文章详情 {{ id }}</div>
 
+    <div class="content-class">
+      <h3 class="title-class">{{ blog.title }}</h3>
+      <ShowMarkdown class="show-markdown-class" :blog="blog"></ShowMarkdown>
+    </div>
+    
     <!-- 
       categoryId: 1
       categoryName: null
@@ -18,7 +22,9 @@
 
 <script>
 import { getArticleDetail } from '@/api/ArticleAPI.js'
+import ShowMarkdown from '@/components/Markdown/ShowMarkdown.vue'
 export default {
+  components: { ShowMarkdown },
   name: 'ArticleInfo',
   props: {
     id: {
@@ -28,7 +34,7 @@ export default {
   },
   data() {
     return {
-
+      blog: {}
     }
   },
   created() {
@@ -37,12 +43,38 @@ export default {
   methods: {
     async getArticleDetail() {
       const { data:res } = await getArticleDetail(this.id)
-      console.log(res);
+      this.blog = res
     }
   }
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+
+.article-info-container {
+
+  .content-class {
+    margin: 0 auto;
+    text-align: center;
+
+    .show-markdown-class {
+      position: relative;
+      z-index: 0;
+      
+    }
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .content-class {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .content-class {
+    width: 90%;
+  }
+}
 
 </style>

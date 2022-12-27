@@ -3,26 +3,28 @@
   <div class="home-container">
     <div class="top-container">
       <div class="top-center">
-        你好,往下拉...
+        云想衣裳花想容，春风拂槛露华浓
       </div>
     </div>
-    <div class="bottom-container">
-      <div class="home-left">
-        <div class="home-left-top">
-          <Card01></Card01>
+    <div class="bottom-background">
+      <div class="bottom-container">
+        <div class="home-left">
+          <div class="home-left-top">
+            <Card01></Card01>
+          </div>
+          <div class="home-left-center">
+          </div>
+          <div class="home-left-bottom">
+          </div>
         </div>
-        <div class="home-left-center">
+        <div class="home-main">
+          <div class="home-main-top">
+            <ArticleList :articleList="articleList" @load="load"></ArticleList>
+          </div>
         </div>
-        <div class="home-left-bottom">
-        </div>
-      </div>
-      <div class="home-main">
-        <div class="home-main-top">
-          <ArticleList :articleList="articleList"></ArticleList>
-        </div>
-      </div>
-      <div class="home-right">
+        <div class="home-right">
 
+        </div>
       </div>
     </div>
 
@@ -57,6 +59,9 @@ export default {
         this.categoryId
       )
       this.articleList = res.rows
+    },
+    load(e) {
+      console.log(e)
     }
   }
 }
@@ -75,21 +80,33 @@ export default {
   /* background: background-color background-image background-repeat background-attachment background-position */
   /* 默认值 => background: transparent none repeat scroll 0% 0%; */
   .top-container {
+    width: 80%;
+    margin: 0 auto;
     background-color: transparent;
 
     .top-center {
-      padding: 300px;
+      padding: 200px 0 0 0;
       height: 1080px;
-      margin: auto;
       text-align: center;
     }
   }
+  .bottom-background {
+    background-color: #f5f5f5;
+  }
   .bottom-container {
     display: flex;
-    padding: 60px 0 0 0;
-    background-color: #f5f5f5;
+    width: 90%;
+    margin: 0 auto;
+    padding: 60px 0 60px 0;
+    
     /* 阴影 => box-shadow: x, y, 模糊度, 大小, 颜色 inset(内部阴影，可选) */
-    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.3);
+    // box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+
+    .home-left-top {
+      /* 粘性定位，浏览器可视区，必须有top，bottom，left，right等其中的一个 */
+      position: sticky;
+      top: 60px;
+    }
   }
 }
 
@@ -113,7 +130,7 @@ export default {
     flex-direction: row;
 
     .home-left {
-      width: 20%;
+      width: 30%;
 
       .home-left-top {
         .card01-container {
@@ -124,7 +141,7 @@ export default {
     }
 
     .home-main {
-      width: 80%;
+      width: 70%;
     }
   }
 }
