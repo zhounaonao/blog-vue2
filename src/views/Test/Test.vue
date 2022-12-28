@@ -16,7 +16,7 @@
       </div>
       <Position></Position>
     </div>
-    <div class="line2">
+    <!-- <div class="line2">
       <div class="promo">
         <img src="http://oss.znn23.top/file/background/wallhaven-p981rj_600x600.png">
         <a href="#" class="prev"> &lt; </a>
@@ -29,9 +29,13 @@
           <li></li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <div class="line3">
       <Nav></Nav>
+    </div>
+    <div class="line4">
+      <input type="button" value="dialog" @click="showDialog">
+      <Dialog class="dialog" :style="{display: isShowDialog }"></Dialog>
     </div>
   </div>
 </template>
@@ -39,10 +43,21 @@
 <script>
 import Position from '@/components/Test/Position.vue'
 import Nav from '@/components/Nav/Nav.vue'
+import Dialog from '@/components/Dialog/Dialog.vue'
 export default {
   name: 'Test',
   components: {
-    Position, Nav
+    Position, Nav, Dialog
+  },
+  data() {
+    return {
+      isShowDialog: 'none'
+    }
+  },
+  methods: {
+    showDialog() {
+      this.isShowDialog = 'block'
+    }
   }
 }
 </script>
@@ -220,5 +235,8 @@ css样式顺序：
       }
     }
   }
+}
+
+.line4 {
 }
 </style>

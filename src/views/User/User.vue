@@ -3,6 +3,7 @@
     <div class="user-main">
       <div v-if="!logined" class="login">
         <Login></Login>
+        
       </div>
       <div v-else>
         个人信息
@@ -17,8 +18,8 @@
 </template>
 
 <script>
-import Login from '@/components/Login/Login.vue'
 import ButtonShine from '@/components/Button/ButtonShine.vue'
+import Login from '@/components/Login/Login.vue'
 import { logout } from '@/api/LoginAPI.js'
 import { removeToken } from '@/utils/auth.js'
 export default {

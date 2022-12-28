@@ -1,7 +1,7 @@
 import axios from 'axios'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
-import { Loading } from 'element-ui'
+import { Loading, Message } from 'element-ui'
 
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 
@@ -14,7 +14,7 @@ const request = axios.create({
 
 // 声明请求拦截
 let loadingInstance = null
-request.interceptors.request.use(config => {
+request.interceptors.request.use((config) => {
   // 展示loading效果
   // loadingInstance = Loading.service({ fullscreen: true })
   const isToken = config.headers.isToken
@@ -26,11 +26,20 @@ request.interceptors.request.use(config => {
 })
 
 // 声明响应拦截器
-request.interceptors.response.use(response => {
+request.interceptors.response.use((response) => {
   // 隐藏loading效果
   // loadingInstance.close()
-  // console.log(response);
-  return response.data
+  const res = response.data
+  // 判断是否成功
+  if (res.code === 200) {
+    return res
+  } else {
+    Message({
+      showClose: true,
+      message: res.msg,
+      type: 'error'
+    })
+  }
 })
 
 export default request

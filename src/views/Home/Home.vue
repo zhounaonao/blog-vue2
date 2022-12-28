@@ -72,7 +72,7 @@ export default {
   padding: 60px 0 0 0;
   margin: 0 auto;
   background: transparent
-    url(http://oss.znn23.top/2022/12/wallhaven-85ox3j_1920x1080.png) no-repeat
+    url(http://oss.znn23.top/file/background/wallhaven-85ox3j_1920x1080.png) no-repeat
     fixed 0% 0%;
   // background-size: 50% 30%;
   /* transparent 透明色 */

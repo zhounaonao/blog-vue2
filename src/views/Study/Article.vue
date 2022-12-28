@@ -70,11 +70,11 @@ export default {
   border-collapse: collapse;
 
   .article-img {
-    width: 9rem;
+    // width: 16rem;
     height: 9rem;
     text-align: center;
     img {
-      width: 9rem;
+      // width: 16rem;
       height: 9rem;
       border-radius: 8px;
     }

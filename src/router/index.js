@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import pathArr from '@/router/pathArr.js'
+import { getToken } from '@/utils/auth.js'
 
 Vue.use(VueRouter)
 
@@ -12,8 +14,16 @@ const routes = [
     path: '/study',
     component: () => import('@/views/Study/Study.vue'),
     children: [
-      { path: 'type/:categoryId', component: () => import('@/views/Study/ArticleList.vue'), props: true },
-      { path: 'article/:id', component: () => import('@/views/Study/ArticleInfo.vue'), props: true },
+      {
+        path: 'type/:categoryId',
+        component: () => import('@/views/Study/ArticleList.vue'),
+        props: true
+      },
+      {
+        path: 'article/:id',
+        component: () => import('@/views/Study/ArticleInfo.vue'),
+        props: true
+      }
     ]
   },
   { path: '/write', component: () => import('@/views/Write/Write.vue') },
@@ -23,6 +33,28 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach(function (to, from, next) {
+  // 让页面回到顶部
+  // chrome
+  document.body.scrollTop = 0
+  // firefox
+  document.documentElement.scrollTop = 0
+  // safari
+  window.pageYOffset = 0
+
+  // 找不到就会返回-1，找到了就不返回-1
+  if (pathArr.indexOf(to.path) != -1) {
+    const token = getToken()
+    if (token) {
+      next()
+    } else {
+      next()
+    }
+  } else {
+    next()
+  }
 })
 
 export default router

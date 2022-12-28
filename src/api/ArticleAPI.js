@@ -24,3 +24,24 @@ export function getArticleDetail(articleId) {
     }
   })
 }
+
+export function writeArticle(article) {
+  return request({
+    url: '/article/write',
+    method: 'post',
+    headers: {
+      isToken: true
+    },
+    data: article
+  })
+}
+
+export function updateViewCount(articleId) {
+  return request({
+    url: '/article/updateViewCount/' + articleId,
+    method: 'put',
+    headers: {
+      isToken: false
+    }
+  })
+}

@@ -1,16 +1,13 @@
 import request from '@/utils/request.js'
 
-export function login(userName, password) {
+export function login(form) {
   return request({
     url: '/security/login',
     method: 'post',
     headers: {
       isToken: false
     },
-    data: {
-      "userName": userName,
-      "password": password
-    }
+    data: form
   })
 }
 

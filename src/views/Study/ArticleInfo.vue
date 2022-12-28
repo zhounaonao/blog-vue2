@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { getArticleDetail } from '@/api/ArticleAPI.js'
+import { getArticleDetail, updateViewCount } from '@/api/ArticleAPI.js'
 import ShowMarkdown from '@/components/Markdown/ShowMarkdown.vue'
 export default {
   components: { ShowMarkdown },
@@ -39,11 +39,15 @@ export default {
   },
   created() {
     this.getArticleDetail()
+    this.updateViewCount()
   },
   methods: {
     async getArticleDetail() {
       const { data:res } = await getArticleDetail(this.id)
       this.blog = res
+    },
+    async updateViewCount() {
+      const res = await updateViewCount(this.id)
     }
   }
 }
