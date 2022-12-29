@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
-    <el-button @click="showLogin">登录</el-button>
-    <el-dialog :visible.sync="dialogFormVisible">
+    <el-button class="login-button" @click="showLogin">登录</el-button>
+    <el-dialog class="login-dialog" :visible.sync="dialogFormVisible" :modal="false">
       <div style="color: dodgerblue;font-size: 30px;text-align: center;margin:20px auto;">欢迎登录</div>
       <el-form :model="form" size="large" :rules="rules" ref="form">
         <el-form-item prop="userName">
@@ -53,6 +53,19 @@ export default {
 
 <style lang="less" scoped>
 .login-container {
+  .login-button {
+    vertical-align: text-top;
+
+  }
+
+  .login-dialog {
+    background-color: rgba(0,0,0,.5);
+  }
+
+  /deep/ .el-dialog {
+    width: 500px;
+    border-radius: 25px;
+  }
 }
 
 </style>

@@ -24,7 +24,8 @@ export default {
 button {
   position: relative;
   margin: 0;
-  padding: 17px 35px;
+  padding: 10px 0;
+  width: 100px;
   outline: none;
   text-decoration: none;
   display: flex;

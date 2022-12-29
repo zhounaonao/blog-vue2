@@ -9,3 +9,13 @@ export function getCategoryList() {
     }
   })
 }
+
+export function getAllCategoryList() {
+  return request({
+    url: '/category/getAllCategoryList',
+    method: 'get',
+    headers: {
+      isToken: false
+    }
+  })
+}

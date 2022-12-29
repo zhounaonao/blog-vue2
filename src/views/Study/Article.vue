@@ -62,7 +62,7 @@ export default {
 
 <style lang="less" scoped>
 .article-container {
-  background-color: #b09563;
+  // background-color: #b09563;
   display: flex;
   margin: 10px 0;
   border: 1px solid #927e59;

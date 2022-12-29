@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
-import { getToken } from '@/utils/auth'
+import { getToken, removeToken } from '@/utils/auth'
 import { Loading, Message } from 'element-ui'
 
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
@@ -30,6 +30,11 @@ request.interceptors.response.use((response) => {
   // 隐藏loading效果
   // loadingInstance.close()
   const res = response.data
+  // 判断是否登录成功或者
+  if (res.code === 401) {
+    store.state.logined = false
+    removeToken()
+  }
   // 判断是否成功
   if (res.code === 200) {
     return res

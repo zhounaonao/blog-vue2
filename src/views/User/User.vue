@@ -7,11 +7,6 @@
       </div>
       <div v-else>
         个人信息
-        <ButtonShine class="button-logout" @shine-click="logout">
-          <template #default>
-            退出登录
-          </template>
-        </ButtonShine>
       </div>
     </div>
   </div>
@@ -20,8 +15,6 @@
 <script>
 import ButtonShine from '@/components/Button/ButtonShine.vue'
 import Login from '@/components/Login/Login.vue'
-import { logout } from '@/api/LoginAPI.js'
-import { removeToken } from '@/utils/auth.js'
 export default {
   name: 'User',
   components: {
@@ -34,11 +27,6 @@ export default {
     }
   },
   methods: {
-    async logout() {
-      await logout()
-      removeToken()
-      this.$store.commit('setLogined', false)
-    }
   }
 }
 </script>
@@ -56,9 +44,6 @@ export default {
       margin: auto;
     }
 
-    .button-logout {
-      float: right;
-    }
   }
 }
 </style>

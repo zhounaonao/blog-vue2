@@ -37,6 +37,9 @@
       <input type="button" value="dialog" @click="showDialog">
       <Dialog class="dialog" :style="{display: isShowDialog }"></Dialog>
     </div>
+    <div class="line5">
+      <div class="fake"></div>
+    </div>
   </div>
 </template>
 
@@ -238,5 +241,17 @@ css样式顺序：
 }
 
 .line4 {
+}
+
+.line5 {
+  /* 伪元素选择器，必须得有content属性权重为1 */
+  /* 当前权重 2 */
+  .fake::before {
+    content: '我';
+  }
+  .fake::after {
+    content: '\e7ee';
+    font-family: "iconfont" !important;
+  }
 }
 </style>

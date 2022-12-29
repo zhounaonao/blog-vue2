@@ -1,7 +1,7 @@
 <template>
   <div class="write-container">
     <div class="write-main">
-      <Markdown ref="markdown" :blog="form" :imgUrl="imgUrl" @submit-form="submitForm" @submit-upload="submitUpload"></Markdown>
+      <Markdown ref="markdown" :blog="form" :imgUrl="imgUrl" :categorys="categorys" @submit-form="submitForm" @submit-upload="submitUpload"></Markdown>
     </div>
   </div>
 </template>
@@ -10,6 +10,7 @@
 import Markdown from '@/components/Markdown/Markdown.vue'
 import { writeArticle } from '@/api/ArticleAPI.js'
 import { uploadFile } from '@/api/UploadAPI.js'
+import { getAllCategoryList } from '@/api/CategoryAPI.js'
 export default {
   name: 'Write',
   components: {
@@ -20,8 +21,12 @@ export default {
       form: {
         title: ''
       },
-      imgUrl: ''
+      imgUrl: '',
+      categorys: []
     }
+  },
+  created() {
+    this.getAllCategoryList()
   },
   methods: {
     async submitForm(blog) {
@@ -40,6 +45,12 @@ export default {
         this.form.thumbnail = res.data
         this.$refs.markdown.showImg = true
         this.$refs.markdown.url = res.data
+      }
+    },
+    async getAllCategoryList() {
+      const res = await getAllCategoryList()
+      if (res) {
+        this.categorys = res.data
       }
     }
   }

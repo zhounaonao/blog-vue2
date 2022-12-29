@@ -10,6 +10,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
+import '@/assets/iconfont/iconfont.css' // 引入font-class图标
+import '@/assets/iconfont/iconfont.js' // 引入symbol图标
+import '@/assets/css/iconfont.less' // 给symbol加效果
+
 
 Vue.use(ElementUI);
 Vue.use(mavonEditor)
