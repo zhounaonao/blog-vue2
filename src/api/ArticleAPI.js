@@ -45,3 +45,17 @@ export function updateViewCount(articleId) {
     }
   })
 }
+
+export function updateCount(articleId, countString) {
+  return request({
+    url: '/article/updateCount/' + articleId,
+    method: 'put',
+    headers: {
+      isToken: true
+    },
+    params: {
+      countString 
+    }
+  })
+}
+

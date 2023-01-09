@@ -18,7 +18,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 .avatar-container {
   height: 60px;
   border-radius: 20%;
@@ -27,21 +26,22 @@ export default {
   .avatar-link {
     position: relative;
     display: inline-block;
-  }
 
-  img {
-    position: relative;
-    height: 60px;
-    border-radius: 40%;
-    padding: 10px 0;
+    img {
+      position: relative;
+      height: 60px;
+      border-radius: 40%;
+      padding: 10px 0;
+      vertical-align: sub;
+    }
   }
 
   .avatar-link::after {
     /* 伪元素选择器必须有content属性 */
     content: '';
     position: absolute;
-    top: 8px;
-    right: 0px;
+    top: 10px;
+    right: -5px;
     display: inline-block;
     width: 12px;
     height: 12px;
@@ -51,13 +51,11 @@ export default {
   }
 
   .avatar-icon {
-    vertical-align: text-top;
+    vertical-align: super;
   }
 }
 
 .avatar-container:hover {
-  background-color: rgba(222, 222, 222, .3);
-  
+  background-color: rgba(222, 222, 222, 0.3);
 }
-
 </style>

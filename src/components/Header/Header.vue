@@ -103,7 +103,7 @@ export default {
   align-items: center;
   /* 有定位的盒子才能指定z-index属性 */
   transition: 0.3s;
-  z-index: 10;
+  z-index: 1000;
 
   .left {
     height: @headerHeight;

@@ -1,11 +1,10 @@
 <template>
   <div class="tabs-container">
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane v-for="tab in tabList" :key="tab.id" :label="tab.label" 
-      :name="tab.name">
-    <slot></slot>
-    <List></List>
-    </el-tab-pane>
+    <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
+      <el-tab-pane v-for="tab in tabList" :key="tab.id" :label="tab.name" 
+      >
+        
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -18,16 +17,19 @@ export default {
     List
   },
   props: {
-
+    tabList: {
+      type: Array,
+      default: [{id:1, name:'1'}]
+    }
   },
   data() {
     return {
-      activeName: 'Java',
-      tabList: [
-        { id: 1, name: 'Java', label: 'Java'},
-        { id: 2, name: 'Vue', label: 'Vue'},
-        { id: 3, name: 'English', label: 'English'}
-      ]
+      activeName: 1
+      // tabList: [
+      //   { id: 1, name: 'Java'},
+      //   { id: 2, name: 'Vue', label: 'Vue'},
+      //   { id: 3, name: 'English', label: 'English'}
+      // ]
     }
   },
   methods: {

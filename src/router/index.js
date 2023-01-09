@@ -18,13 +18,20 @@ const routes = [
         path: 'type/:categoryId',
         component: () => import('@/views/Study/ArticleList.vue'),
         props: true
-      },
-      {
-        path: 'article/:id',
-        component: () => import('@/views/Study/ArticleInfo.vue'),
-        props: true
       }
     ]
+  },
+  {
+    path: '/article',
+    component: () => import('@/views/Study/Article.vue'),
+    children: [
+      {
+        path: ':id',
+        component: () => import('@/views/Study/ArticleDetails.vue'),
+        props: true
+      }
+    ],
+    props: true
   },
   { path: '/write', component: () => import('@/views/Write/Write.vue') },
   { path: '/star', component: () => import('@/views/Star/Star.vue') },
@@ -50,7 +57,7 @@ router.beforeEach(function (to, from, next) {
     if (token) {
       next()
     } else {
-      next()
+      next('/home')
     }
   } else {
     next()

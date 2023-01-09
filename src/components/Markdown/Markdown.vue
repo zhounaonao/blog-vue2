@@ -78,7 +78,8 @@ export default {
       showImg: false,
       url: '',
       files: {},
-      imgs: {}
+      imgs: {},
+      submiting: false
     }
   },
   methods: {
@@ -86,7 +87,16 @@ export default {
       this.blog = {}
     },
     submitForm() {
+      if (this.submiting) {
+        this.$message({
+          message: '正在发布',
+          type: 'warning'
+        });
+        return;
+      }
+      this.submiting = true
       this.$emit('submit-form', this.blog)
+      this.submiting = false
     },
     handleChange(files) {
       this.files = files
@@ -156,6 +166,10 @@ export default {
       height: 178px;
       line-height: 178px;
       text-align: center;
+    }
+
+    /deep/ .v-note-wrapper {
+      z-index: 10 !important;
     }
   }
 

@@ -14,7 +14,7 @@
           <el-button type="primary" @click="login" style="width: 100%">登录</el-button>
         </el-form-item>
         <el-form-item>
-          <el-button @click="register" style="width: 100%;">忘记密码</el-button>
+          <el-button @click="register" style="width: 100%;">注册</el-button>
         </el-form-item>
       </el-form>
     </el-dialog>
@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     async login() {
-      console.log(this.form);
       const { data: res } = await login(this.form)
       setToken(res.token)
       this.$store.commit('setLogined', true)
@@ -45,7 +44,7 @@ export default {
       this.dialogFormVisible = true
     },
     register() {
-
+      
     }
   }
 }
@@ -60,6 +59,7 @@ export default {
 
   .login-dialog {
     background-color: rgba(0,0,0,.5);
+    z-index: 2000;
   }
 
   /deep/ .el-dialog {

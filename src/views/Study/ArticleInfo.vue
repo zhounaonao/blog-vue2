@@ -1,84 +1,126 @@
 <template>
-  <div class="article-info-container">
-
-    <div class="content-class">
-      <h3 class="title-class">{{ blog.title }}</h3>
-      <ShowMarkdown class="show-markdown-class" :blog="blog"></ShowMarkdown>
+    <div class="article-container box-btm">
+      <div class="article-img">
+        <img :src="article.thumbnail">
+      </div>
+      <div class="article-main">
+        <div class="article-title">{{ article.title }}</div>
+        <div class="article-summary">{{ article.summary }}</div>
+        <div class="article-category-name" @click.stop="aa">{{ article.categoryName }}</div>
+        <div class="article-last">
+          <div class="article-create-time">发布时间：{{ article.createTime }}</div>
+          <div class="article-view-count">浏览: {{ article.viewCount }} ,</div>
+          <div class="article-like-count">喜欢: {{ article.likeCount }} ,</div>
+          <div class="article-star-count">收藏: {{ article.starCount }} </div>
+        </div>
+      </div>
     </div>
-    
-    <!-- 
-      categoryId: 1
-      categoryName: null
-      content: "## 课程介绍\n![image20211219121555979.png]("
-      createBy: null
-      createTime: "2022-01-23 11:20:11"
-      id: 1
-      summary: "SpringSecurity框架教程-Spring Security+JWT实现项目级前端分离认证授权"
-      thumbnail: "http://oss.znn23.top/2022/12/wallhaven-x18lgl_1280x720.png"
-      title: "SpringSecurity从入门到精通"
-      viewCount: 37 -->
-  </div>
+
 </template>
 
 <script>
-import { getArticleDetail, updateViewCount } from '@/api/ArticleAPI.js'
-import ShowMarkdown from '@/components/Markdown/ShowMarkdown.vue'
 export default {
-  components: { ShowMarkdown },
   name: 'ArticleInfo',
   props: {
     id: {
       type: [Number, String],
-      default: 0
+      default: 1
+    },
+    article: {
+      type: Object
     }
   },
   data() {
     return {
-      blog: {}
+
     }
   },
-  created() {
-    this.getArticleDetail()
-    this.updateViewCount()
-  },
   methods: {
-    async getArticleDetail() {
-      const { data:res } = await getArticleDetail(this.id)
-      this.blog = res
-    },
-    async updateViewCount() {
-      const res = await updateViewCount(this.id)
+    aa() {
+      console.log(this);
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
+.article-container {
+  // background-color: #b09563;
+  display: flex;
+  margin: 10px 0;
+  /* 合并相邻的边框 */
+  transition: all .5s;
 
-.article-info-container {
-
-  .content-class {
-    margin: 0 auto;
+  .article-img {
+    // width: 16rem;
+    height: 6rem;
+    padding: 1px;
     text-align: center;
+    img {
+      // width: 16rem;
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
 
-    .show-markdown-class {
-      position: relative;
-      z-index: 0;
-      
+  .article-main {
+    width: 100%;
+    position: relative;
+    padding: 0.1rem 0.4rem;
+    overflow: hidden; // 溢出部分不显示
+    font-size: 36px;
+    font-family: PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei;
+
+    .article-title {
+      // text-align: center;
+      // padding: 0.2rem 1rem 0 0;
+      /* font-size 和 font-family不可以省略
+          font: font-style font-weight font-size/line-height font-family */
+      font-weight: 600;
+      font-size: .6em;
+    }
+
+    .article-category-name {
+      width: 2rem;
+      height: 1rem;
+      font-size: .3em;
+      line-height: 1rem;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 2px;
+      // background: transparent
+      //   url(http://oss.znn23.top/file/%E6%A0%87%E7%AD%BE/label.png) no-repeat
+      //   scroll top center;
+      background-size: 2rem 1rem;
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      transition: all .5s;
+    }
+
+    .article-category-name:hover {
+      box-shadow: 0 2px 12px 0 rgba(255, 0, 0, 0.3);
+    }
+
+    .article-summary {
+      font-size: 0.4em;
+    }
+
+    .article-last {
+      position: absolute;
+      bottom: 5px;
+      font-size: 0.3em;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      .article-create-time {
+        padding-right: 1rem;
+      }
     }
   }
 }
 
-@media screen and (min-width: 400px) {
-  .content-class {
-    width: 100%;
+.article-container:hover {
+    transform: translateY(-5px);
   }
-}
-
-@media screen and (min-width: 1000px) {
-  .content-class {
-    width: 90%;
-  }
-}
-
 </style>

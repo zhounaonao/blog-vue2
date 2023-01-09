@@ -1,13 +1,11 @@
 <template>
   <div class="article-list-container">
     <ul>
-      <header>文章</header>
+      <h5>文章集</h5>
       <li v-for="item in articleList" :key="item.id">
-        <router-link :to="'/study/article/' + item.id">
-          <Article :id="item.id" :img="item.thumbnail" 
-          :title="item.title" :summary="item.summary" :categoryName="item.categoryName" 
-          :viewCount="item.viewCount" :time="item.createTime"
-          ></Article>
+        <router-link :to="'/article/' + item.id">
+          <ArticleInfo :id="item.id" :article="item"
+          ></ArticleInfo>
         </router-link>
       </li>
     </ul>
@@ -15,33 +13,38 @@
 </template>
 
 <script>
-import Article from '@/views/Study/Article.vue'
+import ArticleInfo from '@/views/Study/ArticleInfo.vue'
+import { articleList } from '@/api/ArticleAPI.js'
 
 export default {
   name: 'ArticleList',
   components: {
-    Article
+    ArticleInfo
   },
   props: {
     categoryId: {
       type: [Number, String],
       default: 0
-    },
-    articleList: {
-      type: Array,
-      default: []
     }
   },
   data() {
-    return {}
+    return {
+      pageNum: 1,
+      pageSize: 10,
+      articleList: []
+    }
   },
-  created() {},
+  created() {
+    this.getArticleList()
+  },
   methods: {
-    gotoArticleInfo() {
-      console.log(this);
-    },
-    load(e) {
-      this.$emit('load', '123')
+    async getArticleList() {
+      const { data: res } = await articleList(
+        this.pageNum,
+        this.pageSize,
+        this.categoryId
+      )
+      this.articleList = res.rows
     }
   }
 }
@@ -49,7 +52,7 @@ export default {
 
 <style lang="less" scoped>
 .article-list-container {
-  width: 90%;
+  padding: 20px 20px;
   margin: 0 auto;
 
   /* :nth-child 和:nth-of-type 权重为 10 */
@@ -64,6 +67,10 @@ export default {
   /* nth-of-type 会先判断 li 之后判断 nth-of-type(-n + 3)， 所以会选到前三个 li */
   ul li:nth-of-type(-n + 3) {
     padding: 10px 0;
+  }
+
+  h5 {
+    text-align: center;
   }
 
 }

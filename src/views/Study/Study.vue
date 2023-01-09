@@ -1,8 +1,13 @@
 <template>
   <div class="study-container">
-    <div class="study-main">
+    <div class="study-main page-width">
       <div>
-
+        <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
+          <el-tab-pane v-for="tab in categoryList" :key="tab.id" :label="tab.name" :name="tab.name"
+          >
+            <ArticleList :categoryId="tab.id"></ArticleList>
+          </el-tab-pane>
+        </el-tabs>
       </div>
       <router-view></router-view>
     </div>
@@ -10,15 +15,16 @@
 </template>
 
 <script>
-import Tabs from '@/components/Tabs/Tabs.vue'
 import { getCategoryList } from '@/api/CategoryAPI.js'
+import ArticleList from './ArticleList.vue'
 export default {
   name: 'Study',
   components: {
-    Tabs
+    ArticleList
   },
   data() {
     return {
+      activeName: '壁纸',
       categoryList: []
     }
   },
@@ -30,6 +36,9 @@ export default {
     async getCategory() {
       const { data } = await getCategoryList()
       this.categoryList = data
+    },
+    handleClick(tab, e) {
+      console.log(tab, e);
     }
   }
 }
@@ -44,8 +53,8 @@ export default {
     no-repeat fixed 0% 0%;
 
   .study-main {
-    width: 80%;
     margin: 0 auto;
+    padding: 20px;
   }
 }
 </style>
