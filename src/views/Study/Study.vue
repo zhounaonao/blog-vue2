@@ -1,5 +1,5 @@
 <template>
-  <div class="study-container">
+  <div class="study-container page-head">
     <div class="study-main page-width">
       <div>
         <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      activeName: '壁纸',
+      activeName: 'JAVA',
       categoryList: []
     }
   },
@@ -47,9 +47,8 @@ export default {
 <style lang="less" scoped>
 .study-container {
   height: 1080px;
-  padding-top: 60px;
   background: transparent
-    url(http://oss.znn23.top/file/background/wallhaven-969gpd_1920x1080.png)
+    url(http://znn23.top/file/background/wallhaven-969gpd_1920x1080.png)
     no-repeat fixed 0% 0%;
 
   .study-main {

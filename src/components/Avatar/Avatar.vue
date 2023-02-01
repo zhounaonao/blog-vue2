@@ -1,7 +1,7 @@
 <template>
   <div class="avatar-container">
-    <router-link class="avatar-link" to="/user">
-      <img src="http://oss.znn23.top/file/caitou.png">
+    <router-link class="avatar-link" to="/user/userInfo">
+      <img :src="avatar?avatar:'http://znn23.top/file/caitou.png'">
     </router-link>
     <span>
       <svg class="icon avatar-icon" aria-hidden="true">
@@ -13,7 +13,14 @@
 
 <script>
 export default {
-  name: 'Avatar'
+  name: 'Avatar',
+  props: {
+    avatar: {
+      type: String,
+      default: 'http://znn23.top/file/caitou.png'
+    }
+  } 
+
 }
 </script>
 

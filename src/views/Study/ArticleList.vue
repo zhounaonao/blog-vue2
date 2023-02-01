@@ -1,9 +1,8 @@
 <template>
   <div class="article-list-container">
     <ul>
-      <h5>文章集</h5>
       <li v-for="item in articleList" :key="item.id">
-        <router-link :to="'/article/' + item.id">
+        <router-link :to="userId?'/write/' + item.id:'/article/' + item.id">
           <ArticleInfo :id="item.id" :article="item"
           ></ArticleInfo>
         </router-link>
@@ -25,6 +24,10 @@ export default {
     categoryId: {
       type: [Number, String],
       default: 0
+    },
+    userId: {
+      type: [Number, String],
+      default: 0
     }
   },
   data() {
@@ -42,7 +45,8 @@ export default {
       const { data: res } = await articleList(
         this.pageNum,
         this.pageSize,
-        this.categoryId
+        this.categoryId,
+        this.userId
       )
       this.articleList = res.rows
     }

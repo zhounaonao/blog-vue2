@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export const state = {
   loading: false,
   logined: false,
-  baseURL: 'http://127.0.0.1:9110/'
+  baseURL: 'http://192.168.3.56:9110/'
 
 }
 

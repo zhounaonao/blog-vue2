@@ -1,127 +1,125 @@
 <template>
-  <div class="user-container">
-    <div class="user-main page-width">
-      <div class="user-left">
-        <div class="avatar">
-          <img src="http://oss.znn23.top/file/caitou.png">
-        </div>
-
+  <div class="user-container page-head">
+    <div class="user-main page-width box-btm">
+      <div class="top-tools">
+        <Tabs :tabList="tabList"></Tabs>
+        <!-- <ul>
+          <li :class="isActive == 'userInfo'?'is-active':'no-active'" @click="changeActive('userInfo')">
+            <router-link to="/user/userInfo">
+              个人信息
+            </router-link>
+          </li>
+          <li :class="isActive == 'myWorks'?'is-active':'no-active'" @click="changeActive('myWorks')">
+            <router-link to="/user/myWorks">
+              我的作品
+            </router-link>
+          </li>
+        </ul> -->
       </div>
-      <div class="user-right">
-
-      </div>
-    </div>
-    <div class="line9">
-      <div class="bg1"></div>
-      <div class="bg2"></div>
-      <div class="bear-running">
-      </div>
+      <router-view :userInfo="userInfo" @save-user-info="saveUserInfo">
+        <template #default>
+          <Upload ref="upload" @submit-upload="submitUpload"></Upload>
+        </template>
+      </router-view>
     </div>
   </div>
 </template>
 
 <script>
-import ButtonShine from '@/components/Button/ButtonShine.vue'
-import Login from '@/components/Login/Login.vue'
+import Upload from '@/components/Upload/Upload.vue'
+import Tabs from '@/components/Tabs/Tabs.vue'
+import { uploadFile } from '@/api/UploadAPI.js'
+import { saveUserInfo } from '@/api/UserAPI.js'
 export default {
   name: 'User',
   components: {
-    Login,
-    ButtonShine
+    Upload, Tabs
   },
   computed: {
     logined() {
       return this.$store.state.logined
     }
   },
-  methods: {}
+  data() {
+    return {
+      isActive: 'userInfo',
+      userInfo: {},
+      tabList: [
+        { id: 'userInfo', name: '个人信息', path: '/user/userInfo' },
+        { id: 'myWorks', name: '我的作品', path: '/user/myWorks' }
+      ]
+    }
+  },
+  created() {
+    this.getUserInfo()
+  },
+  methods: {
+    async getUserInfo() {
+      this.userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    },
+    async submitUpload(file) {
+      const res = await uploadFile(file)
+      if (res) {
+        this.$refs.upload.showImg = true
+        this.$refs.upload.url = res.data
+        this.userInfo.avatar = res.data
+        await saveUserInfo({
+          id: this.userInfo.id,
+          avatar: this.userInfo.avatar
+        })
+        console.log(this)
+      }
+    },
+    async saveUserInfo() {
+      const res = await saveUserInfo(this.userInfo)
+      if (res) {
+        localStorage.setItem('userInfo', JSON.stringify(this.userInfo))
+        location.reload()
+      }
+    },
+    changeActive(tab) {
+      this.isActive = tab
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .user-container {
   .user-main {
-    display: flex;
-    padding: 60px;
-    .user-left {
-      width: 40%;
-      .avatar {
-        width: 200px;
-        margin: auto;
-        transition: all 0.5s;
-        img {
-          width: 100%;
-          border-radius: 50%;
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    z-index: 12;
+    width: 100%;
+
+    ul {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #f5f5f5;
+
+      // transform: translate(-50%);
+      li {
+        a {
+          display: inline-block;
+          height: 40px;
+          line-height: 40px;
+          padding: 0 20px;
+          font-size: 14px;
+          border-radius: 5px 5px 0 0;
         }
       }
-      .avatar:hover {
-        transform: rotateY(360deg);
+      li:hover {
       }
-    }
-    .user-right {
-      width: 60%;
-      background-color: #ff5555;
-    }
-  }
-  @keyframes move {
-    0% {
-      left: 0;
-    }
-    100% {
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-  }
+      .is-active {
+        a {
+        background-color: #fff;
 
-  @keyframes bearRunning {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -1600px 0;
-    }
-  }
-
-  @keyframes bgRunning {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: -3840px 0;
-    }
-  }
-
-  .line9 {
-    position: relative;
-    height: 600px;
-
-    .bg1 {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 336px;
-      background: url(../../assets/images/bg1.png);
-      z-index: 10;
-      animation: bgRunning 30s linear infinite;
-    }
-    .bg2 {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 570px;
-      background: url(../../assets/images/bg2.png);
-      opacity: 0.8;
-      z-index: 1;
-      animation: bgRunning 60s linear infinite;
-    }
-    .bear-running {
-      position: absolute;
-      bottom: 50px;
-      width: 200px;
-      height: 100px;
-      background: url(../../assets/images/bear.png) no-repeat;
-      animation: bearRunning 0.5s steps(8) infinite, move 5s linear forwards;
-      z-index: 11;
+          color: #0099ff;
+        }
+      }
     }
   }
 }

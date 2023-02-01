@@ -1,9 +1,9 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3843826 */
-  src: url('iconfont.woff2?t=1672793959676') format('woff2'),
-       url('iconfont.woff?t=1672793959676') format('woff'),
-       url('iconfont.ttf?t=1672793959676') format('truetype'),
-       url('iconfont.svg?t=1672793959676#iconfont') format('svg');
+  src: url('iconfont.woff2?t=1674123099716') format('woff2'),
+       url('iconfont.woff?t=1674123099716') format('woff'),
+       url('iconfont.ttf?t=1674123099716') format('truetype'),
+       url('iconfont.svg?t=1674123099716#iconfont') format('svg');
 }
 
 .iconfont {
@@ -12,6 +12,94 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-close-circle:before {
+  content: "\e77d";
+}
+
+.icon-frown:before {
+  content: "\e77e";
+}
+
+.icon-down-circle:before {
+  content: "\e77f";
+}
+
+.icon-sync:before {
+  content: "\e786";
+}
+
+.icon-reload:before {
+  content: "\e788";
+}
+
+.icon-message:before {
+  content: "\e78a";
+}
+
+.icon-poweroff:before {
+  content: "\e78c";
+}
+
+.icon-like:before {
+  content: "\e7c8";
+}
+
+.icon-unlike:before {
+  content: "\e7c9";
+}
+
+.icon-table:before {
+  content: "\e7de";
+}
+
+.icon-key:before {
+  content: "\e7e1";
+}
+
+.icon-tag:before {
+  content: "\e7e4";
+}
+
+.icon-arrowdown:before {
+  content: "\e7ef";
+}
+
+.icon-download:before {
+  content: "\e7f0";
+}
+
+.icon-check:before {
+  content: "\e7fc";
+}
+
+.icon-fire:before {
+  content: "\e842";
+}
+
+.icon-message-fill:before {
+  content: "\e84a";
+}
+
+.icon-fire-fill:before {
+  content: "\e866";
+}
+
+.icon-like-fill:before {
+  content: "\e86b";
+}
+
+.icon-unlike-fill:before {
+  content: "\e86c";
+}
+
+.icon-eye:before {
+  content: "\e78f";
+}
+
+.icon-eye-fill:before {
+  content: "\e869";
 }
 
 .icon-star:before {

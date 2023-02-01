@@ -1,11 +1,11 @@
 <template>
-  <div class="test-container page-width">
+  <div class="test-container page-width page-head">
     <div class="line1">
       <div class="father">
         <div class="children"></div>
       </div>
       <div class="card">
-        <img src="http://oss.znn23.top/file/caitou.png">
+        <img src="http://znn23.top/file/caitou.png">
         <p class="title">这是一个菜头，我是他的简介，他是一个图片</p>
         <div class="price-container"><span>价格</span><span>|</span><span class="price">￥20</span></div>
       </div>
@@ -16,9 +16,12 @@
       </div>
       <Position></Position>
     </div>
-    <!-- <div class="line2">
-      <div class="promo">
-        <img src="http://oss.znn23.top/file/background/wallhaven-p981rj_600x600.png">
+    <div class="line11">
+      <Tabs></Tabs>
+    </div>
+    <div class="line2">
+      <!-- <div class="promo">
+        <img src="http://znn23.top/file/background/wallhaven-p981rj_600x600.png">
         <a href="#" class="prev"> &lt; </a>
         <a href="#" class="next"> &gt; </a>
         <ul class="promo-nav">
@@ -28,8 +31,8 @@
           <li></li>
           <li></li>
         </ul>
-      </div>
-    </div> -->
+      </div> -->
+    </div>
     <div class="line3">
       <Nav></Nav>
     </div>
@@ -100,10 +103,11 @@
 import Position from '@/components/Test/Position.vue'
 import Nav from '@/components/Nav/Nav.vue'
 import Dialog from '@/components/Dialog/Dialog.vue'
+import Tabs from '@/components/Tabs/Tabs.vue'
 export default {
   name: 'Test',
   components: {
-    Position, Nav, Dialog
+    Position, Nav, Dialog, Tabs
   },
   data() {
     return {
@@ -166,11 +170,13 @@ css样式顺序：
   3.文本属性：color,font,text-decoration,text-align,vertical-align,white-space,break-word
   4.其他属性(css3)：content,cursor,border-radius,box-shadow,texxt-shadow,background:linear-gradient...
 */
+.test-container {
+  background-color: #fff;
 
+}
 .line1 {
   display: flex;
   flex-direction: row;
-  padding: 60px 0 0 0;
 
   .father {
     height: 3rem;
@@ -234,6 +240,10 @@ css样式顺序：
       }
     }
   }
+}
+
+.line11 {
+  height: 100px;
 }
 
 .line2 {
@@ -637,7 +647,7 @@ css样式顺序：
     div {
       width: 150px;
       height: 100px;
-      background: #ff5555 url(http://oss.znn23.top/file/%E6%A0%87%E7%AD%BE/dog.jpg) no-repeat;
+      background: #ff5555 url(http://znn23.top/file/%E6%A0%87%E7%AD%BE/dog.jpg) no-repeat;
       /* 
       1.宽，高，一个参数就是宽，高度等比例缩放，
       2.%就是当前容器的% 

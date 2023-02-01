@@ -51,7 +51,7 @@ input {
 body {
     /* CSS3 抗锯齿形 让文字显示的更加清晰 */
     -webkit-font-smoothing: antialiased;
-    background-color: #fff;
+    background-color: #f5f5f5;
     font: 36px/1.5  Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
     color: #666
 }
@@ -73,10 +73,30 @@ body {
     *zoom: 1
 }
 
+h1,h2,h3,h4,h5,h6 {
+  text-align: center;
+}
+
+.markdown-h {
+  h1,h2,h3,h4,h5,h6 {
+    text-align: left;
+  }
+}
+
 /* 版心 */
 .page-width {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@headerHeight: 60px;
+
+.header {
+  height: @headerHeight;
+}
+
+.page-head {
+  padding-top: @headerHeight;
 }
 
 .box-btm {
@@ -90,6 +110,10 @@ body {
 
 .box-sha {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
+}
+
+.highlight {
+  color: #ff0000;
 }
 
 .v-note-wrapper {

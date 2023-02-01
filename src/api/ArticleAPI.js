@@ -1,6 +1,6 @@
 import request from '@/utils/request.js'
 
-export function articleList(pageNum, pageSize, categoryId) {
+export function articleList(pageNum, pageSize, categoryId, userId) {
   return request({
     url: '/article/articleList',
     method: 'get',
@@ -10,7 +10,8 @@ export function articleList(pageNum, pageSize, categoryId) {
     params: {
       "pageNum": pageNum,
       "pageSize": pageSize,
-      "categoryId": categoryId
+      "categoryId": categoryId,
+      "userId": userId
     }
   })
 }

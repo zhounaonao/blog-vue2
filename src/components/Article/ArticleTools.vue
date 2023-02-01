@@ -1,10 +1,14 @@
 <template>
   <div class="article-tools-container">
     <div class="like" ref="like" @click="updateCount('like')">
-      <span class="icon-class">&#xe7df;</span><span class="count">{{ likeCount }}</span>
+      <a href="javascript:;">
+        <span class="icon-class">&#xe7df;</span><span class="count">{{ likeCount }}</span>
+      </a>
     </div>
     <div class="star" @click="updateCount('star')">
-      <span class="icon-class">&#xe7e0;</span><span class="count">{{ starCount }}</span>
+      <a href="javascript:;">
+        <span class="icon-class">&#xe7e0;</span><span class="count">{{ starCount }}</span>
+      </a>
     </div>
   </div>
 </template>

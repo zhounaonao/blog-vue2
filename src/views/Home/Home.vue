@@ -3,7 +3,7 @@
   <div class="home-container">
     <div class="top-container page-width">
       <div class="top-center" :style="topCenterStyle">
-        云想衣裳花想容，春风拂槛露华浓
+        说自己想说，做自己想做
       </div>
     </div>
     <div class="bottom-background">
@@ -27,18 +27,20 @@
         </div>
       </div>
     </div>
-
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Card01 from '@/components/Card/Card01.vue'
 import ArticleList from '@/views/Study/ArticleList.vue'
+import Footer from '@/components/Footer/Footer.vue'
 
 export default {
   components: {
     Card01,
-    ArticleList
+    ArticleList,
+    Footer
   },
   computed: {
     topCenterStyle() {
@@ -47,7 +49,7 @@ export default {
   },
   data() {
     return {
-      pageHeight: '1080px'
+      pageHeight: '600px'
     }
   },
   created() {
@@ -71,7 +73,7 @@ export default {
   padding: 60px 0 0 0;
   margin: 0 auto;
   background: transparent
-    url(http://oss.znn23.top/file/background/wallhaven-85ox3j_1920x1080.png)
+    url(http://znn23.top/file/background/wallhaven-85ox3j_1920x1080.png)
     no-repeat fixed 0% 0%;
   // background-size: 50% 30%;
   /* transparent 透明色 */
@@ -90,7 +92,7 @@ export default {
     }
   }
   .bottom-background {
-    background-color: #f5f5f5;
+    // background-color: #f5f5f5;
   }
   .bottom-container {
     display: flex;

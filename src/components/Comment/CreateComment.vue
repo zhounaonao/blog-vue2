@@ -5,14 +5,14 @@
           type="textarea"
           placeholder="添加评论"
           v-model="content"
-          maxlength="800"
+          maxlength="600"
           show-word-limit
-          :autosize="{ minRows: 5, maxRows: 8}"
+          :autosize="{ minRows: 3, maxRows: 8}"
         >
         </el-input>
         <div class="btn">
-          <el-button @click="resetContent">重置</el-button>
-          <el-button @click="submitContent">发布</el-button>
+          <el-button size="small" round @click="resetContent">重置</el-button>
+          <el-button size="small" round @click="submitContent">发布</el-button>
 
         </div>
     </div>
@@ -32,7 +32,6 @@ export default {
       this.content = ''
     },
     submitContent() {
-      console.log(this.content);
       this.$emit('submit-content', this.content)
     }
   }
@@ -41,13 +40,12 @@ export default {
 
 <style lang="less" scoped>
 .create-comment-main {
-  display: flex;
   .btn {
+    display: flex;
     width: 100px;
-    padding: 0 10px;
+    margin: 0 auto;
   }
   .el-button {
-    margin-left: 0px;
   }
 
 }

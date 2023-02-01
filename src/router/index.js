@@ -2,17 +2,49 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import pathArr from '@/router/pathArr.js'
 import { getToken } from '@/utils/auth.js'
+import { Message } from 'element-ui'
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', redirect: '/home' },
-  { path: '/home', component: () => import('@/views/Home/Home.vue') },
-  { path: '/test', component: () => import('@/views/Test/Test.vue') },
-  { path: '/user', component: () => import('@/views/User/User.vue') },
+  {
+    path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
+    component: () => import('@/views/Home/Home.vue'),
+    meta: {
+      title: '首页'
+    }
+  },
+  {
+    path: '/test',
+    component: () => import('@/views/Test/Test.vue'),
+    meta: {
+      title: '测试'
+    }
+  },
+  {
+    path: '/user',
+    component: () => import('@/views/User/User.vue'),
+    children: [
+      {
+        path: 'userInfo',
+        component: () => import('@/views/User/UserInfo.vue')
+      },
+      {
+        path: 'myWorks',
+        component: () => import('@/views/User/MyWorks.vue')
+      }
+    ]
+  },
   {
     path: '/study',
     component: () => import('@/views/Study/Study.vue'),
+    meta: {
+      title: '文章分类'
+    },
     children: [
       {
         path: 'type/:categoryId',
@@ -33,9 +65,26 @@ const routes = [
     ],
     props: true
   },
-  { path: '/write', component: () => import('@/views/Write/Write.vue') },
+  { path: '/write/:id', component: () => import('@/views/Write/Write.vue'), props: true },
   { path: '/star', component: () => import('@/views/Star/Star.vue') },
-  { path: '/about', component: () => import('@/views/About/About.vue') }
+  {
+    path: '/about',
+    component: () => import('@/views/About/About.vue'),
+    children: [
+      {
+        path: 'personalInfo',
+        component: () => import('@/views/About/PersonalInfo.vue')
+      },
+      {
+        path: 'skills',
+        component: () => import('@/views/About/Skills.vue')
+      },
+      {
+        path: 'education',
+        component: () => import('@/views/About/Education.vue')
+      }
+    ]
+  }
 ]
 
 const router = new VueRouter({
@@ -51,12 +100,22 @@ router.beforeEach(function (to, from, next) {
   // safari
   window.pageYOffset = 0
 
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+
   // 找不到就会返回-1，找到了就不返回-1
   if (pathArr.indexOf(to.path) != -1) {
     const token = getToken()
     if (token) {
       next()
     } else {
+      Message({
+        showClose: true,
+        message: '请先登录',
+        type: 'error'
+      })
+      document.title = '首页'
       next('/home')
     }
   } else {

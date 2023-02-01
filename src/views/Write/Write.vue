@@ -1,20 +1,26 @@
 <template>
-  <div class="write-container">
-    <div class="write-main">
-      <Markdown ref="markdown" :blog="form" :imgUrl="imgUrl" :categorys="categorys" @submit-form="submitForm" @submit-upload="submitUpload"></Markdown>
+  <div class="write-container page-head">
+    <div class="write-main page-width">
+      <Markdown ref="markdown" :blog="form" :categorys="categorys" @submit-form="submitForm" @submit-upload="submitUpload"></Markdown>
     </div>
   </div>
 </template>
 
 <script>
 import Markdown from '@/components/Markdown/Markdown.vue'
-import { writeArticle } from '@/api/ArticleAPI.js'
+import { getArticleDetail, writeArticle } from '@/api/ArticleAPI.js'
 import { uploadFile } from '@/api/UploadAPI.js'
 import { getAllCategoryList } from '@/api/CategoryAPI.js'
 export default {
   name: 'Write',
   components: {
     Markdown
+  },
+  props: {
+    id: {
+      type: [Number, String],
+      default: 0
+    }
   },
   data() {
     return {
@@ -26,6 +32,7 @@ export default {
     }
   },
   created() {
+    this.getArticleDetail()
     this.getAllCategoryList()
   },
   methods: {
@@ -52,6 +59,15 @@ export default {
       if (res) {
         this.categorys = res.data
       }
+    },
+    async getArticleDetail() {
+      const { data:res } = await getArticleDetail(this.id)
+      this.form = res
+      if (res.thumbnail) {
+        console.log(this.$refs.markdown);
+        this.$refs.markdown.url = res.thumbnail
+        this.$refs.markdown.showImg = true
+      }
     }
   }
 }
@@ -59,8 +75,6 @@ export default {
 
 <style lang="less" scoped>
 .write-main {
-  width: 80%;
   margin: 0 auto;
-  padding: 60px;
 }
 </style>

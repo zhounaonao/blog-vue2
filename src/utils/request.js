@@ -7,7 +7,8 @@ axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 
 const request = axios.create({
   // axios中请求配置有baseURL选项，表示请求URL公共部分
-  baseURL: store.state.baseURL,
+  baseURL: 'https://www.znn23.top:9110/', // 正式的prod
+  // baseURL: 'http://127.0.0.1:9111/', // 测试的dev
   // 超时
   timeout: 100000
 })
@@ -18,7 +19,6 @@ request.interceptors.request.use((config) => {
   // 展示loading效果
   // loadingInstance = Loading.service({ fullscreen: true })
   const isToken = config.headers.isToken
-  // console.log(getToken());
   if (getToken() && isToken) {
     config.headers['token'] = getToken()
   }
@@ -37,6 +37,11 @@ request.interceptors.response.use((response) => {
   }
   // 判断是否成功
   if (res.code === 200) {
+    Message({
+      showClose: true,
+      message: res.msg,
+      type: 'success'
+    })
     return res
   } else {
     Message({

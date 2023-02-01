@@ -9,11 +9,15 @@
     </div>
     <div class="comment-main page-width">
       <div class="create-comment">
-        <CreateComment></CreateComment>
+        <CreateComment @submit-content="submitComment"></CreateComment>
       </div>
       <div class="comment-list">
         <ul>
-          <Comment @submit-content="submitComment"></Comment>
+          <Comment v-for="item in commentList" :key="item.id" :comment="item" @update-count="updateCommentCount">
+            <template #default>
+              <CreateComment  @submit-content="submitReply(item.id, item.createBy, item.parentId, $event)"></CreateComment>
+            </template>
+        </Comment>
         </ul>
       </div>
     </div>
@@ -22,7 +26,7 @@
 
 <script>
 import { getArticleDetail, updateViewCount, updateCount } from '@/api/ArticleAPI.js'
-import { addComment } from '@/api/CommentAPI.js'
+import { addComment, getCommentList, updateCommentCount } from '@/api/CommentAPI.js'
 import ArticleTools from '@/components/Article/ArticleTools.vue'
 import Comment from '@/components/Comment/Comment.vue'
 import CreateComment from '@/components/Comment/CreateComment.vue'
@@ -42,12 +46,14 @@ export default {
   data() {
     return {
       blog: {},
-      content: ''
+      commentList: []
     }
   },
   created() {
     this.getArticleDetail()
     this.updateViewCount()
+    this.getCommentList()
+
   },
   methods: {
     async getArticleDetail() {
@@ -57,16 +63,42 @@ export default {
     async updateViewCount() {
       const res = await updateViewCount(this.id)
     },
+    async getCommentList() {
+      const res = await getCommentList(1, 10, this.id)
+      this.commentList = res.data.rows
+    },
     async updateCount(countString) {
       const res = await updateCount(this.id, countString)
-      console.log(res);
+      console.log(res)
     },
     async submitComment(e) {
-      const res = await addComment({
+      const comment = {
         articleId: this.id,
         content: e
-      })
+      }
+      const res = await addComment(comment)
+      this.getCommentList()
+    },
+    async submitReply(id, userId, parentId, e) {
+      if (parentId == 0) {
+        parentId = id
+      }
+      const comment = {
+        articleId: this.id,
+        toCommentUserId: userId,
+        toComment: id,
+        parentId: parentId,
+        content: e
+      }
+      const res = await addComment(comment)
       console.log(res);
+      this.getCommentList()
+
+    },
+    async updateCommentCount(e) {
+      const res = await updateCommentCount(e.id, e.countString)
+      this.getCommentList()
+
     }
   }
 }
@@ -82,9 +114,10 @@ export default {
   .article-tools {
     position: fixed;
     top: 120px;
-    left: 50%;
-    margin-left: 600px;
-
+    // left: 10%;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    z-index: 100;
   }
   .comment-main {
     .create-comment {

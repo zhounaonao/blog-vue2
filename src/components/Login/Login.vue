@@ -22,26 +22,26 @@
 </template>
 
 <script>
-import { login } from '@/api/LoginAPI.js'
-import { setToken } from '@/utils/auth.js'
 export default {
   name: 'Login',
+  props: {
+    dialogFormVisible: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
-      dialogFormVisible: false,
       form: {},
       rules: {}
     }
   },
   methods: {
-    async login() {
-      const { data: res } = await login(this.form)
-      setToken(res.token)
-      this.$store.commit('setLogined', true)
-      this.dialogFormVisible = false
+    login() {
+      this.$emit('login', this.form)
     },
     showLogin() {
-      this.dialogFormVisible = true
+      this.$emit('update-visible', true)
     },
     register() {
       

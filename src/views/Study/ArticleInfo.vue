@@ -91,7 +91,7 @@ export default {
       transform: translateY(-50%);
       right: 2px;
       // background: transparent
-      //   url(http://oss.znn23.top/file/%E6%A0%87%E7%AD%BE/label.png) no-repeat
+      //   url(http://znn23.top/file/%E6%A0%87%E7%AD%BE/label.png) no-repeat
       //   scroll top center;
       background-size: 2rem 1rem;
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
