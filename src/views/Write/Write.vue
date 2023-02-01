@@ -41,7 +41,7 @@ export default {
       if (res) {
         this.$message({
           showClose: true,
-          message: res.msg,
+          message: '发布成功',
           type: 'success'
         })
       }

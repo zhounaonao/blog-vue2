@@ -6,7 +6,7 @@
         <img :src="defaultUrl">
         <ul>
           <li>姓名:周闹闹</li>
-          <li>求职:JAVA开发工程师</li>
+          <li>求职意向:JAVA开发工程师</li>
         </ul>
       </div>
       <div class="center">

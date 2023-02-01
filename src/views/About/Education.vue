@@ -38,6 +38,7 @@ export default {
   width: 100%;
   padding: 10px 0;
   .education-main {
+    max-width: 1000px;
     margin: 0 auto;
     padding: 10px 5px;
     font-size: 20px;
@@ -49,6 +50,11 @@ export default {
     .center {
     }
     .right {
+      p {
+        padding: 10px 5px;
+        font-size: 0.6rem;
+        text-indent: 1.2rem;
+      }
     }
   }
 }

@@ -51,6 +51,7 @@ export default {
   width: 100%;
   padding: 10px 0;
   .skills-main {
+    max-width: 1000px;
     margin: 0 auto;
     padding: 10px 5px;
     font-size: 20px;
