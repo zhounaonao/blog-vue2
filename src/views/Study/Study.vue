@@ -17,6 +17,7 @@
 <script>
 import { getCategoryList } from '@/api/CategoryAPI.js'
 import ArticleList from './ArticleList.vue'
+
 export default {
   name: 'Study',
   components: {
@@ -46,14 +47,12 @@ export default {
 
 <style lang="less" scoped>
 .study-container {
-  height: 1080px;
   background: transparent
     url(http://znn23.top/file/background/wallhaven-969gpd_1920x1080.png)
     no-repeat fixed 0% 0%;
 
   .study-main {
     margin: 0 auto;
-    padding: 20px;
   }
 }
 </style>

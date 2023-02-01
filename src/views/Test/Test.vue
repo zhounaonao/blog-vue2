@@ -1,26 +1,27 @@
 <template>
-  <div class="test-container page-width page-head">
-    <div class="line1">
-      <div class="father">
-        <div class="children"></div>
-      </div>
-      <div class="card">
-        <img src="http://znn23.top/file/caitou.png">
-        <p class="title">这是一个菜头，我是他的简介，他是一个图片</p>
-        <div class="price-container"><span>价格</span><span>|</span><span class="price">￥20</span></div>
-      </div>
-      <div class="shadow">
-        <div class="box">
-          <p>阴影</p>
+  <div class="test-container page-head">
+    <div class="test-main page-width">
+      <div class="line1">
+        <div class="father">
+          <div class="children"></div>
         </div>
+        <div class="card">
+          <img src="http://znn23.top/file/caitou.png">
+          <p class="title">这是一个菜头，我是他的简介，他是一个图片</p>
+          <div class="price-container"><span>价格</span><span>|</span><span class="price">￥20</span></div>
+        </div>
+        <div class="shadow">
+          <div class="box">
+            <p>阴影</p>
+          </div>
+        </div>
+        <Position></Position>
       </div>
-      <Position></Position>
-    </div>
-    <div class="line11">
-      <Tabs></Tabs>
-    </div>
-    <div class="line2">
-      <!-- <div class="promo">
+      <div class="line11">
+        <Tabs></Tabs>
+      </div>
+      <div class="line2">
+        <!-- <div class="promo">
         <img src="http://znn23.top/file/background/wallhaven-p981rj_600x600.png">
         <a href="#" class="prev"> &lt; </a>
         <a href="#" class="next"> &gt; </a>
@@ -32,68 +33,69 @@
           <li></li>
         </ul>
       </div> -->
-    </div>
-    <div class="line3">
-      <Nav></Nav>
-    </div>
-    <div class="line4">
-      <input type="button" value="dialog" @click="showDialog">
-      <Dialog class="dialog" :style="{display: isShowDialog }"></Dialog>
-    </div>
-    <div class="line5">
-      <div class="fake"></div>
-    </div>
-    <div class="line6">
-      <div class="transition">
       </div>
-      <div class="jdt">
-        <div class="jdt_in"></div>
+      <div class="line3">
+        <Nav></Nav>
       </div>
-    </div>
-    <div class="line7">
-      <div class="animation"></div>
-      <div class="animation-simple"></div>
-    </div>
-    <div class="line8">
-      <div class="steps-font">欢迎光临本店</div>
-    </div>
-    <div class="line9">
-      <div class="bg1"></div>
-      <div class="bg2"></div>
-      <div class="bear-running">
+      <div class="line4">
+        <input type="button" value="dialog" @click="showDialog">
+        <Dialog class="dialog" :style="{display: isShowDialog }"></Dialog>
       </div>
-    </div>
-    <div class="line10">
-      <div class="translate3d"></div>
-      <div class="rotate3d"></div>
-      <div class="transform-style">
-        <div class="t1"></div>
-        <div class="t2"></div>
+      <div class="line5">
+        <div class="fake"></div>
       </div>
-      <!-- 前后翻转 -->
-      <div class="two-box">
-        <div class="box1">zyd</div>
-        <div class="box2">znn</div>
+      <div class="line6">
+        <div class="transition">
+        </div>
+        <div class="jdt">
+          <div class="jdt_in"></div>
+        </div>
       </div>
-      <!-- 上下翻转 -->
-      <div class="two-box-x">
-        <div class="box1">zyd</div>
-        <div class="box2">znn</div>
-        <!-- 右 -->
-        <div class="box3"></div>
-        <!-- 上 -->
-        <div class="box4"></div>
-        <!-- 左 -->
-        <div class="box5"></div>
+      <div class="line7">
+        <div class="animation"></div>
+        <div class="animation-simple"></div>
       </div>
-      <!-- 滚动 -->
-      <div class="six-box">
-        <div class="box1"></div>
-        <div class="box2"></div>
-        <div class="box3"></div>
-        <div class="box4"></div>
-        <div class="box5"></div>
-        <div class="box6"></div>
+      <div class="line8">
+        <div class="steps-font">欢迎光临本店</div>
+      </div>
+      <div class="line9">
+        <div class="bg1"></div>
+        <div class="bg2"></div>
+        <div class="bear-running">
+        </div>
+      </div>
+      <div class="line10">
+        <div class="translate3d"></div>
+        <div class="rotate3d"></div>
+        <div class="transform-style">
+          <div class="t1"></div>
+          <div class="t2"></div>
+        </div>
+        <!-- 前后翻转 -->
+        <div class="two-box">
+          <div class="box1">zyd</div>
+          <div class="box2">znn</div>
+        </div>
+        <!-- 上下翻转 -->
+        <div class="two-box-x">
+          <div class="box1">zyd</div>
+          <div class="box2">znn</div>
+          <!-- 右 -->
+          <div class="box3"></div>
+          <!-- 上 -->
+          <div class="box4"></div>
+          <!-- 左 -->
+          <div class="box5"></div>
+        </div>
+        <!-- 滚动 -->
+        <div class="six-box">
+          <div class="box1"></div>
+          <div class="box2"></div>
+          <div class="box3"></div>
+          <div class="box4"></div>
+          <div class="box5"></div>
+          <div class="box6"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -107,7 +109,10 @@ import Tabs from '@/components/Tabs/Tabs.vue'
 export default {
   name: 'Test',
   components: {
-    Position, Nav, Dialog, Tabs
+    Position,
+    Nav,
+    Dialog,
+    Tabs
   },
   data() {
     return {
@@ -171,8 +176,10 @@ css样式顺序：
   4.其他属性(css3)：content,cursor,border-radius,box-shadow,texxt-shadow,background:linear-gradient...
 */
 .test-container {
-  background-color: #fff;
+  .test-main {
+    background-color: #fff;
 
+  }
 }
 .line1 {
   display: flex;
@@ -203,7 +210,7 @@ css样式顺序：
       width: 3rem;
       margin: 0 auto;
       border-radius: 50%;
-      transition: all .5s;
+      transition: all 0.5s;
     }
 
     img:hover {
@@ -266,10 +273,9 @@ css样式顺序：
       margin-top: -15px;
       width: 20px;
       height: 30px;
-      background-color: rgba(0,0,0,.3);
+      background-color: rgba(0, 0, 0, 0.3);
       font-size: 20px;
       text-align: center;
-      
     }
 
     .prev {
@@ -289,7 +295,7 @@ css样式顺序：
       margin-left: -30px;
       width: 80px;
       height: 16px;
-      background-color: rgba(255, 255, 255, .3);
+      background-color: rgba(255, 255, 255, 0.3);
       border-radius: 10px;
 
       li {
@@ -319,14 +325,13 @@ css样式顺序：
   .fake::after {
     content: '\e7ee';
     display: inline-block;
-    font-family: "iconfont" !important;
-    transition: all .5s;
+    font-family: 'iconfont' !important;
+    transition: all 0.5s;
   }
   .fake:hover::after {
     /* transform: rotate 对行内元素无效 */
     /* 使用2D转换可以旋转 */
     transform: rotate(45deg);
-
   }
 }
 
@@ -343,7 +348,7 @@ css样式顺序：
     /* 运动曲线: 默认时ease, line=匀速,ease=逐渐慢下来,ease-in=加速,ease-out=减速,ease-in-out=先加速后减速 */
     /* 何时开始: 单位时秒（必须要写单位）可以设置延迟触发的事件 默认时0s */
     /* 谁过度给谁加transition */
-    transition: all .5s, height 1s ease-in 1s, background-color 2s;;
+    transition: all 0.5s, height 1s ease-in 1s, background-color 2s;
   }
 
   .transition:hover {
@@ -351,7 +356,7 @@ css样式顺序：
     // width: 200px;
     // height: 100px;
     /* 使用2D转换缩放不会撑开盒子,scale的参数是宽和高的倍数 */
-    transform: scale(2,2);
+    transform: scale(2, 2);
     background-color: #ff5555;
     border: 2px solid #000;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
@@ -374,9 +379,7 @@ css样式顺序：
 
   .jdt:hover .jdt_in {
     width: 100%;
-
   }
-
 }
 
 /* 定义动画 */
@@ -434,10 +437,7 @@ css样式顺序：
   }
 }
 
-
-
 .line8 {
-
   .steps-font {
     width: 0;
     height: 30px;
@@ -450,7 +450,6 @@ css样式顺序：
     font-size: 20px;
     animation: stepsFont 2s steps(6) forwards;
   }
-
 }
 
 @keyframes bearRunning {
@@ -490,17 +489,17 @@ css样式顺序：
     width: 100%;
     height: 570px;
     background: url(../../assets/images/bg2.png);
-    opacity: .8;
+    opacity: 0.8;
     z-index: 1;
     animation: bgRunning 60s linear infinite;
   }
   .bear-running {
-    position:absolute;
+    position: absolute;
     bottom: 50px;
     width: 200px;
     height: 100px;
     background: url(../../assets/images/bear.png) no-repeat;
-    animation: bearRunning .5s steps(8) infinite, move 5s linear forwards;
+    animation: bearRunning 0.5s steps(8) infinite, move 5s linear forwards;
     z-index: 11;
   }
 }
@@ -517,7 +516,7 @@ css样式顺序：
     width: 100px;
     height: 100px;
     margin: 50px 50px;
-    transition: all .5s;
+    transition: all 0.5s;
     transform-style: preserve-3d;
     div {
       position: absolute;
@@ -534,7 +533,6 @@ css样式顺序：
   .translate3d:hover {
     // transform: translate3d(10px, 10px, 50px);
     transform: translateZ(100px);
-
   }
   .rotate3d {
     background-color: #aa5555;
@@ -550,10 +548,11 @@ css样式顺序：
     width: 100px;
     height: 100px;
     margin: 50px 50px;
-    transition: all .5s;
+    transition: all 0.5s;
     transform-style: preserve-3d; // 控制子元素是否开启立体空间
 
-    .t1, .t2 {
+    .t1,
+    .t2 {
       position: absolute;
       width: 100px;
       height: 100px;
@@ -561,22 +560,19 @@ css样式顺序：
 
     .t1 {
       background-color: #ff4444;
-
     }
 
     .t2 {
       background-color: #aa1111;
       transform: rotateX(45deg);
-
     }
-
   }
   .transform-style:hover {
     transform: rotateY(60deg);
   }
   // 伪元素清除浮动
   .transform-style::after {
-    content: "";
+    content: '';
     display: block;
     height: 0;
     clear: both;
@@ -584,7 +580,6 @@ css样式顺序：
   }
 
   .two-box {
-
     // perspective: 500px;
     div {
       border-radius: 50%;
@@ -598,11 +593,11 @@ css样式顺序：
       color: #f5f5f5;
     }
     .box2 {
-      background-color:bisque;
+      background-color: bisque;
     }
   }
   .two-box:hover {
-    transform: rotateY(180deg)
+    transform: rotateY(180deg);
   }
 
   .two-box-x {
@@ -647,17 +642,17 @@ css样式顺序：
     div {
       width: 150px;
       height: 100px;
-      background: #ff5555 url(http://znn23.top/file/%E6%A0%87%E7%AD%BE/dog.jpg) no-repeat;
+      background: #ff5555 url(http://znn23.top/file/%E6%A0%87%E7%AD%BE/dog.jpg)
+        no-repeat;
       /* 
       1.宽，高，一个参数就是宽，高度等比例缩放，
       2.%就是当前容器的% 
       3.cover完全覆盖div盒子
       4.contain 高度和宽度等比例拉伸 当宽度或者高度铺满div盒子就不再拉伸(可能有部分空白区域)
       */
-      // background-size: 150px; 
+      // background-size: 150px;
       // background-size: cover;
       background-size: contain;
-
     }
     .box1 {
       transform: translateZ(150px);

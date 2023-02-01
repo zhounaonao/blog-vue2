@@ -4,14 +4,7 @@
     <div class="skills-main">
       <div class="row">
         <span>JAVA基础:</span>
-        <el-popover
-          placement="top-start"
-          title="集合"
-          width="200"
-          trigger="hover"
-          content="集合。">
-          <div slot="reference" class="tag">集合</div>
-        </el-popover>
+        <div slot="reference" class="tag">集合</div>
         <div class="tag">反射</div>
         <div class="tag">IO</div>
         <div class="tag">Lambda</div>
@@ -31,14 +24,11 @@
         <div class="tag">redis</div>
         <div class="tag">nacos</div>
         <div class="tag">feign</div>
-        <div class="tag">Lambda</div>
-        <div class="tag">stream</div>
-        <div class="tag">thread</div>
       </div>
       <div class="row">
         <span>工具:</span>
-        <div class="tag">docker</div>
-        <div class="tag">mysql</div>
+        <div class="tag">Docker</div>
+        <div class="tag">MySql</div>
       </div>
     </div>
   </div>

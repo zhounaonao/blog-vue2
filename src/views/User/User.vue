@@ -3,18 +3,6 @@
     <div class="user-main page-width box-btm">
       <div class="top-tools">
         <Tabs :tabList="tabList"></Tabs>
-        <!-- <ul>
-          <li :class="isActive == 'userInfo'?'is-active':'no-active'" @click="changeActive('userInfo')">
-            <router-link to="/user/userInfo">
-              个人信息
-            </router-link>
-          </li>
-          <li :class="isActive == 'myWorks'?'is-active':'no-active'" @click="changeActive('myWorks')">
-            <router-link to="/user/myWorks">
-              我的作品
-            </router-link>
-          </li>
-        </ul> -->
       </div>
       <router-view :userInfo="userInfo" @save-user-info="saveUserInfo">
         <template #default>

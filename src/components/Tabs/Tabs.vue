@@ -1,14 +1,12 @@
 <template>
   <div class="tabs-container">
     <ul>
-      <li v-for="item in tabList" :key="item.id">
-        <a :href="'#' + item.path" :class="isActive == item.id?'is-active':'no-active'" @click="changeActive(item.id)">
+      <li v-for="item in tabList" :key="item.path">
+        <a :href="'#' + item.path" :class="isActive == item.path?'is-active':'no-active'" @click="changeActive(item.path)">
           {{ item.name }}
         </a>
       </li>
-
     </ul>
-
   </div>
 </template>
 
@@ -21,7 +19,7 @@ export default {
       type: Array,
       default: [
         { id: 1, name: '一', path: '/test' },
-        { id: 2, name: '二', path: '/test' }
+        { id: 2, name: '二', path: '/two' }
       ]
     }
   },
@@ -29,8 +27,11 @@ export default {
   },
   data() {
     return {
-      isActive: this.tabList[0].id
+      isActive: this.tabList[0].path
     }
+  },
+  created() {
+    this.isActive = this.$route.path
   },
   methods: {
     changeActive(tab) {
@@ -47,9 +48,9 @@ export default {
 
   ul {
     display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
 
     // transform: translate(-50%);
     li {
@@ -59,7 +60,7 @@ export default {
         line-height: 40px;
         padding: 0 20px;
         font-size: 14px;
-        border-radius: 5px;
+        border-radius: 5px 5px 0 0;
         transition: all .5s;
       }
       a:hover {

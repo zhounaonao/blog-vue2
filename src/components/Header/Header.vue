@@ -117,6 +117,8 @@ export default {
   position: fixed;
   width: 100%;
   display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 10%);
   align-items: center;
   /* 有定位的盒子才能指定z-index属性 */
   transition: 0.3s;

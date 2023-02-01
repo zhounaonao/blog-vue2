@@ -48,7 +48,7 @@ export default {
   // background-color: #b09563;
   display: flex;
   margin: 10px 0;
-  /* 合并相邻的边框 */
+  /* 动画效果 */
   transition: all .5s;
 
   .article-img {

@@ -2,29 +2,10 @@
   <div class="about-container page-head">
     <div class="about-main page-width box-btm">
       <div class="my-info">
-        <div class="left">
-          <el-menu
-            :default-active="this.$route.path"
-            router
-            class="el-menu-vertical-demo">
-            <el-menu-item index="/about/personalInfo">
-              <span slot="title">个人信息</span>
-            </el-menu-item>
-            <el-menu-item index="/about/skills">
-              <span slot="title">熟练技能</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-              <span slot="title">获奖情况</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-              <span slot="title">工作经验</span>
-            </el-menu-item>
-            <el-menu-item index="/about/education">
-              <span slot="title">教育背景</span>
-            </el-menu-item>
-          </el-menu>
+        <div class="top">
+          <Tabs :tabList="tabList"></Tabs>
         </div>
-        <div class="right">
+        <div class="bottom">
           <router-view></router-view>
         </div>
       </div>
@@ -39,14 +20,21 @@
 </template>
 
 <script>
+import Tabs from '@/components/Tabs/Tabs.vue'
 export default {
   name: 'About',
   components: {
-
+    Tabs
   },
   data() {
     return {
       defaultUrl: 'http://znn23.top/2023/01/%E5%91%A8%E9%97%B9%E9%97%B9.jpg',
+      tabList: [
+        {id: 1, name: '个人信息', path: '/about/personalInfo'},
+        {id: 2, name: '熟练技能', path: '/about/skills'},
+        {id: 3, name: '工作经验', path: '/about/Experience'},
+        {id: 4, name: '教育背景', path: '/about/education'},
+      ]
     }
   },
 }
@@ -61,13 +49,12 @@ export default {
     z-index: 12;
 
     .my-info {
-      display: flex;
 
-      .left {
+      .top {
         text-align: center;
       }
-      .right {
-        width: 1000px;
+      .bottom {
+        max-width: 1200px;
         margin: 0 auto;
       }
     }

@@ -31,11 +31,17 @@ const routes = [
     children: [
       {
         path: 'userInfo',
-        component: () => import('@/views/User/UserInfo.vue')
+        component: () => import('@/views/User/UserInfo.vue'),
+        meta: {
+          title: '个人信息'
+        }
       },
       {
         path: 'myWorks',
-        component: () => import('@/views/User/MyWorks.vue')
+        component: () => import('@/views/User/MyWorks.vue'),
+        meta: {
+          title: '我的作品'
+        }
       }
     ]
   },
@@ -60,28 +66,60 @@ const routes = [
       {
         path: ':id',
         component: () => import('@/views/Study/ArticleDetails.vue'),
-        props: true
+        props: true,
+        meta: {
+          title: '文章详情'
+        }
       }
     ],
     props: true
   },
-  { path: '/write/:id', component: () => import('@/views/Write/Write.vue'), props: true },
-  { path: '/star', component: () => import('@/views/Star/Star.vue') },
+  {
+    path: '/write/:id',
+    component: () => import('@/views/Write/Write.vue'),
+    props: true,
+    meta: {
+      title: '写作'
+    }
+  },
+  {
+    path: '/star',
+    component: () => import('@/views/Star/Star.vue'),
+    meta: {
+      title: '收藏'
+    }
+  },
   {
     path: '/about',
     component: () => import('@/views/About/About.vue'),
     children: [
       {
         path: 'personalInfo',
-        component: () => import('@/views/About/PersonalInfo.vue')
+        component: () => import('@/views/About/PersonalInfo.vue'),
+        meta: {
+          title: '个人信息'
+        }
       },
       {
         path: 'skills',
-        component: () => import('@/views/About/Skills.vue')
+        component: () => import('@/views/About/Skills.vue'),
+        meta: {
+          title: '熟练技能'
+        }
+      },
+      {
+        path: 'experience',
+        component: () => import('@/views/About/Experience.vue'),
+        meta: {
+          title: '工作经验'
+        }
       },
       {
         path: 'education',
-        component: () => import('@/views/About/Education.vue')
+        component: () => import('@/views/About/Education.vue'),
+        meta: {
+          title: '教育背景'
+        }
       }
     ]
   }
