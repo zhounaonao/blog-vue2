@@ -7,8 +7,8 @@ axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 
 const request = axios.create({
   // axios中请求配置有baseURL选项，表示请求URL公共部分
-  baseURL: 'https://www.znn23.top:9110/', // 正式的prod
-  // baseURL: 'http://127.0.0.1:9111/', // 测试的dev
+  // baseURL: 'https://www.znn23.top:9110/', // 正式的prod
+  baseURL: 'http://127.0.0.1:9111/', // 测试的dev
   // 超时
   timeout: 100000
 })
