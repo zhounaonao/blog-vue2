@@ -30,7 +30,7 @@ export default {
     return {
       defaultUrl: 'http://znn23.top/2023/01/%E5%91%A8%E9%97%B9%E9%97%B9.jpg',
       tabList: [
-        {id: 1, name: '个人信息', path: '/about/personalInfo'},
+        {id: 1, name: '个人信息', path: '/about/personalInfo/0'},
         {id: 2, name: '熟练技能', path: '/about/skills'},
         {id: 3, name: '工作经验', path: '/about/Experience'},
         {id: 4, name: '教育背景', path: '/about/education'},

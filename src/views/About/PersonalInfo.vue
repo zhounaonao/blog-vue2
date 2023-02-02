@@ -3,9 +3,9 @@
     <h5>/ PersonalInfo // 个人信息</h5>
     <div class="personal-info-main">
       <div class="avatar">
-        <img :src="defaultUrl">
+        <img :src="avatarUrl">
         <ul>
-          <li>姓名:周闹闹</li>
+          <li>{{ authorName }}</li>
           <li>求职意向:JAVA开发工程师</li>
         </ul>
       </div>
@@ -17,7 +17,7 @@
           <li>年龄: 23</li>
           <li>政治面貌: 共产党员</li>
           <li>专业: 计算机应用技术</li>
-          <li>手机: 13028902352</li>
+          <li>手机: {{ authorPhone }}</li>
           <li>邮箱: 1737381081@qq.com</li>
         </ul>
       </div>
@@ -37,9 +37,27 @@
 export default {
   name: 'PersonalInfo',
   components: {},
+  props: {
+    password: {
+      type: [Number, String],
+      default: 0
+    }
+  },
+  computed: {
+    avatarUrl() {
+      return this.password == 20000203?this.myUrl:this.defaultUrl
+    },
+    authorName() {
+      return this.password == 20000203?'周闹闹':'周先生'
+    },
+    authorPhone() {
+      return this.password == 20000203?'13028902352':'130****2352'
+    }
+  },
   data() {
     return {
-      defaultUrl: 'http://znn23.top/2023/01/%E5%91%A8%E9%97%B9%E9%97%B9.jpg'
+      defaultUrl: 'http://znn23.top/file/caitou.png',
+      myUrl: 'http://znn23.top/2023/01/%E5%91%A8%E9%97%B9%E9%97%B9.jpg'
     }
   }
 }

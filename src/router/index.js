@@ -94,8 +94,9 @@ const routes = [
     component: () => import('@/views/About/About.vue'),
     children: [
       {
-        path: 'personalInfo',
+        path: 'personalInfo/:password',
         component: () => import('@/views/About/PersonalInfo.vue'),
+        props: true,
         meta: {
           title: '个人信息'
         }

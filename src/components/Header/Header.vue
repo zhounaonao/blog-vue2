@@ -9,7 +9,7 @@
       <div class="center"></div>
       <el-menu mode="horizontal" router :default-active="this.$route.path" :background-color="bgc" text-color="#000" active-text-color="#000000" @select="onSelect">
         <el-menu-item index="/home">首页</el-menu-item>
-        <el-menu-item index="/test">测试</el-menu-item>
+        <!-- <el-menu-item index="/test">测试</el-menu-item> -->
         <el-menu-item index="/study">学习</el-menu-item>
         <el-menu-item index="/about/personalInfo">关于</el-menu-item>
       </el-menu>
