@@ -1,6 +1,6 @@
 <template>
   <div class="tabs-container">
-    <ul>
+    <ul class="box-btm">
       <li v-for="item in tabList" :key="item.path">
         <a :href="'#' + item.path" :class="isActive == item.path?'is-active':'no-active'" @click="changeActive(item.path)">
           {{ item.name }}
@@ -18,8 +18,7 @@ export default {
     tabList: {
       type: Array,
       default: [
-        { id: 1, name: '一', path: '/test' },
-        { id: 2, name: '二', path: '/two' }
+        { id: 1, name: '测试', path: '/test' }
       ]
     }
   },
@@ -32,6 +31,7 @@ export default {
   },
   created() {
     this.isActive = this.$route.path
+    console.log(this.tabList[0].path);
   },
   methods: {
     changeActive(tab) {
@@ -44,7 +44,8 @@ export default {
 <style lang="less" scoped>
 .tabs-container {
   position: relative;
-  background-color: #f5f5f5;
+  // background-color: #f5f5f5;
+  margin: 0 auto;
 
   ul {
     display: flex;
@@ -63,13 +64,10 @@ export default {
         border-radius: 5px 5px 0 0;
         transition: all .5s;
       }
-      a:hover {
-        color: #0099ff;
-      }
+
     }
     .is-active {
-      background-color: #fff;
-      color: #0099ff;
+      background-color: rgba(255, 255, 255, 0.2);
     }
   }
 }

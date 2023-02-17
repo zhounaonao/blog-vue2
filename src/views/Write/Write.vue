@@ -38,13 +38,6 @@ export default {
   methods: {
     async submitForm(blog) {
       const res = await writeArticle(blog)
-      if (res) {
-        this.$message({
-          showClose: true,
-          message: '发布成功',
-          type: 'success'
-        })
-      }
     },
     async submitUpload(file) {
       const res = await uploadFile(file)

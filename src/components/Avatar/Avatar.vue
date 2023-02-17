@@ -1,7 +1,7 @@
 <template>
   <div class="avatar-container">
     <router-link class="avatar-link" to="/user/userInfo">
-      <img :src="avatar?avatar:'http://znn23.top/file/caitou.png'">
+      <img :src="avatar?avatar:$store.state.defaultAvatar">
     </router-link>
     <span>
       <svg class="icon avatar-icon" aria-hidden="true">
@@ -12,14 +12,19 @@
 </template>
 
 <script>
+import defaultAvatarJpg from '@/assets/images/defaultAvatar.jpg'
 export default {
   name: 'Avatar',
   props: {
     avatar: {
       type: String,
-      default: 'http://znn23.top/file/caitou.png'
     }
-  } 
+  },
+  data() {
+    return {
+      defaultAvatar: defaultAvatarJpg
+    }
+  }
 
 }
 </script>

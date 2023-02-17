@@ -1,29 +1,22 @@
 <template>
   <!-- 首页 -->
   <div class="home-container">
-    <div class="top-container page-width">
-      <div class="top-center" :style="topCenterStyle">
-        说自己想说，做自己想做
-      </div>
-    </div>
-    <div class="bottom-background">
-      <div class="bottom-container page-width">
-        <!-- <div class="home-left">
-          <div class="home-left-top">
-            <Card01></Card01>
-          </div>
-          <div class="home-left-center">
-          </div>
-          <div class="home-left-bottom">
-          </div>
-        </div> -->
-        <div class="home-main">
-          <div class="home-main-top">
-            <ArticleList></ArticleList>
-          </div>
+    <div class="page-height">
+      <div class="top-container page-width">
+        <div class="top-center" :style="topCenterStyle">
+          <p>说自己想说做自己想做</p>
         </div>
-        <div class="home-right">
+      </div>
+      <div class="bottom-background">
+        <div class="bottom-container page-width">
+          <div class="home-main">
+            <div class="home-main-top">
+              <ArticleList></ArticleList>
+            </div>
+          </div>
+          <div class="home-right">
 
+          </div>
         </div>
       </div>
     </div>
@@ -32,24 +25,22 @@
 </template>
 
 <script>
-import Card01 from '@/components/Card/Card01.vue'
 import ArticleList from '@/views/Study/ArticleList.vue'
 import Footer from '@/components/Footer/Footer.vue'
 
 export default {
   components: {
-    Card01,
     ArticleList,
     Footer
   },
   computed: {
     topCenterStyle() {
-      return {height: this.pageHeight}
+      return { height: this.pageHeight }
     }
   },
   data() {
     return {
-      pageHeight: '600px'
+      pageHeight: '450px'
     }
   },
   created() {
@@ -72,9 +63,8 @@ export default {
 .home-container {
   padding: 60px 0 0 0;
   margin: 0 auto;
-  background: transparent
-    url(http://znn23.top/file/background/wallhaven-85ox3j_1920x1080.png)
-    no-repeat fixed 0% 0%;
+  background: transparent url(../../assets/images/home-bg.png) no-repeat fixed
+    0% 0%;
   // background-size: 50% 30%;
   /* transparent 透明色 */
   /* background: 背景颜色 背景图片地址 背景平铺 背景图像滚动 背景图片位置 */
@@ -86,9 +76,28 @@ export default {
     background-color: transparent;
 
     .top-center {
-      padding: 220px 0 0 0;
+      padding: 200px 0 0 0;
       text-align: center;
       font-weight: 600;
+      @keyframes stepsFont {
+        0% {
+          width: 0px;
+        }
+
+        100% {
+          width: 370px;
+        }
+      }
+      p {
+        display: inline-block;
+        width: 400px;
+        height: 56px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 28px;
+        overflow: hidden;
+        animation: stepsFont 3.8s steps(10);
+      }
     }
   }
   .bottom-background {
@@ -119,9 +128,7 @@ export default {
 //     flex-direction: column;
 //     .home-left {
 //       width: 100%;
-//       .card01-container {
-//         width: 100%;
-//       }
+
 //     }
 //     .home-main {
 //       width: 100%;
@@ -137,10 +144,7 @@ export default {
 //       width: 30%;
 
 //       .home-left-top {
-//         .card01-container {
-//           width: 200px;
-//           margin: 0 auto;
-//         }
+
 //       }
 //     }
 

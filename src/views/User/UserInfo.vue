@@ -1,7 +1,7 @@
 <template>
   <div class="user-info-container">
     <div class="avatar" @click="dialogCropperVisible=!dialogCropperVisible">
-      <img :src="userInfo.avatar?userInfo.avatar:defaultUrl">
+      <img :src="userInfo.avatar?userInfo.avatar:$store.state.defaultAvatar">
     </div>
     <div class="user-info-main">
       <el-form ref="form" :model="userInfo" label-width="80px">
@@ -60,7 +60,6 @@ export default {
   data() {
     return {
       dialogCropperVisible: false,
-      defaultUrl: 'http://znn23.top/file/caitou.png'
     }
   },
   created() {

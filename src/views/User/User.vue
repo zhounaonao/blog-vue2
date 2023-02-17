@@ -1,5 +1,5 @@
 <template>
-  <div class="user-container page-head">
+  <div class="user-container page-head page-height">
     <div class="user-main page-width box-btm">
       <div class="top-tools">
         <Tabs :tabList="tabList"></Tabs>
@@ -51,11 +51,7 @@ export default {
         this.$refs.upload.showImg = true
         this.$refs.upload.url = res.data
         this.userInfo.avatar = res.data
-        await saveUserInfo({
-          id: this.userInfo.id,
-          avatar: this.userInfo.avatar
-        })
-        console.log(this)
+        this.saveUserInfo()
       }
     },
     async saveUserInfo() {
@@ -74,9 +70,12 @@ export default {
 
 <style lang="less" scoped>
 .user-container {
+  background: transparent
+    url(../../assets/images/study-bg.png)
+    no-repeat fixed 0% 0%;
   .user-main {
     position: relative;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 20px;
     z-index: 12;
     width: 100%;
@@ -86,7 +85,7 @@ export default {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: #f5f5f5;
+      background-color: transparent;
 
       // transform: translate(-50%);
       li {

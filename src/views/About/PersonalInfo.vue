@@ -6,7 +6,6 @@
         <img :src="avatarUrl">
         <ul>
           <li>{{ authorName }}</li>
-          <li>求职意向:JAVA开发工程师</li>
         </ul>
       </div>
       <div class="center">
@@ -15,13 +14,13 @@
       <div class="right">
         <ul>
           <li>年龄: 23</li>
-          <li>政治面貌: 共产党员</li>
+          <li>求职意向:JAVA开发工程师</li>
+          <li>求职城市:杭州</li>
           <li>专业: 计算机应用技术</li>
           <li>手机: {{ authorPhone }}</li>
           <li>邮箱: 1737381081@qq.com</li>
         </ul>
       </div>
-
     </div>
     <div class="bottom">
       <h6>我和JAVA</h6>
@@ -34,6 +33,7 @@
 </template>
 
 <script>
+import aboutMeJpg from '@/assets/images/aboutMe.jpg'
 export default {
   name: 'PersonalInfo',
   components: {},
@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     avatarUrl() {
-      return this.password == 20000203?this.myUrl:this.defaultUrl
+      return this.password == 20000203?this.myUrl:this.$store.state.defaultAvatar
     },
     authorName() {
       return this.password == 20000203?'周闹闹':'周先生'
@@ -56,8 +56,7 @@ export default {
   },
   data() {
     return {
-      defaultUrl: 'http://znn23.top/file/caitou.png',
-      myUrl: 'http://znn23.top/2023/01/%E5%91%A8%E9%97%B9%E9%97%B9.jpg'
+      myUrl: aboutMeJpg
     }
   }
 }

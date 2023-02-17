@@ -6,7 +6,7 @@
           <div class="children"></div>
         </div>
         <div class="card">
-          <img src="http://znn23.top/file/caitou.png">
+          <img :src="$store.state.defaultAvatar">
           <p class="title">这是一个菜头，我是他的简介，他是一个图片</p>
           <div class="price-container"><span>价格</span><span>|</span><span class="price">￥20</span></div>
         </div>
@@ -21,18 +21,6 @@
         <Tabs></Tabs>
       </div>
       <div class="line2">
-        <!-- <div class="promo">
-        <img src="http://znn23.top/file/background/wallhaven-p981rj_600x600.png">
-        <a href="#" class="prev"> &lt; </a>
-        <a href="#" class="next"> &gt; </a>
-        <ul class="promo-nav">
-          <li class="selected"></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div> -->
       </div>
       <div class="line3">
         <Nav></Nav>
@@ -635,14 +623,14 @@ css样式顺序：
   }
 
   .six-box {
-    width: 150px;
+    width: 100px;
     height: 100px;
     margin: 0 200px;
     transition: all 2s;
     div {
-      width: 150px;
+      width: 100px;
       height: 100px;
-      background: #ff5555 url(http://znn23.top/file/%E6%A0%87%E7%AD%BE/dog.jpg)
+      background: #ff5555 url(../../assets/images/defaultAvatar.jpg)
         no-repeat;
       /* 
       1.宽，高，一个参数就是宽，高度等比例缩放，

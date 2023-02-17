@@ -6,7 +6,8 @@
       <div class="article-main">
         <div class="article-title">{{ article.title }}</div>
         <div class="article-summary">{{ article.summary }}</div>
-        <div class="article-category-name" @click.stop="aa">{{ article.categoryName }}</div>
+        <a href="javascript:;" class="article-category-name" @click.stop="gotoCategory">{{ article.categoryName }}</a>
+        <!-- <div class="article-category-name" @click.stop="gotoCategory">{{ article.categoryName }}</div> -->
         <div class="article-last">
           <div class="article-create-time">发布时间：{{ article.createTime }}</div>
           <div class="article-view-count">浏览: {{ article.viewCount }} ,</div>
@@ -36,8 +37,10 @@ export default {
     }
   },
   methods: {
-    aa() {
-      console.log(this);
+    gotoCategory() {
+      if (this.article && this.article.categoryId) {
+        this.$router.push('/study/type/' + this.article.categoryId)
+      }
     }
   }
 }
@@ -90,9 +93,6 @@ export default {
       top: 50%;
       transform: translateY(-50%);
       right: 2px;
-      // background: transparent
-      //   url(http://znn23.top/file/%E6%A0%87%E7%AD%BE/label.png) no-repeat
-      //   scroll top center;
       background-size: 2rem 1rem;
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
       transition: all .5s;

@@ -1,11 +1,11 @@
 <template>
-  <div class="about-container page-head">
+  <div class="about-container page-head page-height">
     <div class="about-main page-width box-btm">
       <div class="my-info">
         <div class="top">
           <Tabs :tabList="tabList"></Tabs>
         </div>
-        <div class="bottom">
+        <div class="bottom box-btm">
           <router-view></router-view>
         </div>
       </div>
@@ -28,7 +28,6 @@ export default {
   },
   data() {
     return {
-      defaultUrl: 'http://znn23.top/2023/01/%E5%91%A8%E9%97%B9%E9%97%B9.jpg',
       tabList: [
         {id: 1, name: '个人信息', path: '/about/personalInfo/0'},
         {id: 2, name: '熟练技能', path: '/about/skills'},
@@ -42,9 +41,12 @@ export default {
 
 <style lang="less" scoped>
 .about-container {
+  background: transparent
+    url(../../assets/images/study-bg.png)
+    no-repeat fixed 0% 0%;
   .about-main {
     position: relative;
-    background-color: #fff;
+    background-color: transparent;
     opacity: .9;
     z-index: 12;
 

@@ -46,7 +46,6 @@ export default {
   components: {},
   data() {
     return {
-      defaultUrl: 'http://znn23.top/2023/01/%E5%91%A8%E9%97%B9%E9%97%B9.jpg'
     }
   }
 }

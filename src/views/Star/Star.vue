@@ -1,18 +1,7 @@
 <template>
   <div class="star-container">
     <div class="star-main">
-      <div class="box">
-        <img src="http://znn23.top/file/background/wallhaven-l8mlyy_1920x1080.png">
-      </div>
-      <div class="box">
-        <img src="http://znn23.top/file/background/wallhaven-l8mlyy_1920x1080.png">
-      </div>
-      <div class="box">
-        <img src="http://znn23.top/file/background/wallhaven-l8mlyy_1920x1080.png">
-      </div>
-      <div class="box">
-        <img src="http://znn23.top/file/background/wallhaven-l8mlyy_1920x1080.png">
-      </div>
+      
     </div>
   </div>
 </template>

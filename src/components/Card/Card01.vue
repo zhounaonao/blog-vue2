@@ -3,7 +3,7 @@
     <div class="box">
       <div class="card box-btm">
         <div class="avatar">
-          <img src="http://znn23.top/2022/12/7aeae696b2294ebab955a047e50c6b59.png">
+          <img :src=defaultAvatar>
         </div>
         <div class="content">
           <div class="name">
@@ -20,8 +20,14 @@
 </template>
 
 <script>
+import defaultAvatarJpg from '@/assets/images/defaultAvatar.jpg'
 export default {
-  name: 'Card01'
+  name: 'Card01',
+  data() {
+    return {
+      defaultAvatar: defaultAvatarJpg
+    }
+  }
 }
 </script>
 
