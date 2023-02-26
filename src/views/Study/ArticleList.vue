@@ -79,7 +79,7 @@ export default {
   margin: 0 auto;
 
   ul li {
-    padding: 2px;
+    padding: 2px 0;
   }
   /* :nth-child 和:nth-of-type 权重为 10 */
   /* 结构伪类选择器:nth-child(-n + 3) n从0开始，当前结果为选择ul的3，2，1前三个子元素 nth-of-type会找前三个子li */
@@ -95,10 +95,6 @@ export default {
     padding: 5px 0;
   }
 
-  .el-pagination {
-    margin: 0 auto;
-    width: 0;
-  }
 }
 
 
